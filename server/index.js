@@ -12,7 +12,7 @@ const expressValidator = require('express-validator');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
-require('./data/ezstudy-db');
+//require('./data/ourdbname');
 port = 3000
 
 app.use(expressValidator());
