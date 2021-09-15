@@ -35,5 +35,5 @@
 ## How to run server 
 In terminal:
 '''
-nodemon 
+npm start 
 '''
