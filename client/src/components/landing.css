@@ -1,0 +1,49 @@
+.landing .hero {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.landing .hero img {
+  border-radius: 10px;
+}
+.landing .hero div {
+  margin: 0 3rem;
+}
+.landing .hero div p {
+  opacity: 0.7;
+}
+.landing .hero div button {
+  padding: 0.5rem 1rem;
+  background-color: black;
+  color: white;
+  border: none;
+  border-radius: 10px;
+}
+.landing .blurbs, .landing .cards {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.landing .blurbs > *, .landing .cards > * {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 2rem;
+  padding: 3rem;
+}
+.landing .blurbs > * > *, .landing .cards > * > * {
+  margin: 0.5rem;
+}
+.landing .blurbs > * img, .landing .cards > * img {
+  height: auto;
+  width: 100px;
+  border-radius: 50%;
+}
+.landing .blurbs > .card, .landing .cards > .card {
+  border: 2px solid lightgray;
+  border-radius: 10px;
+}
+
+/*# sourceMappingURL=landing.css.map */
