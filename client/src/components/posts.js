@@ -1,4 +1,5 @@
 import React from 'react'
+import { NavLink } from 'react-router-dom'
 import './posts.css'
 
 const examplePostData = [
@@ -54,6 +55,7 @@ function Posts() {
     }
     return (
         <div className='posts'>
+            <NavLink className='createPost' to='/createPost'> + Create A Post</NavLink>
             {post(examplePostData)}
         </div>
     )
