@@ -1,0 +1,49 @@
+.posts {
+  display: flex;
+  flex-direction: column;
+  margin-left: 40%;
+}
+.posts .post {
+  border: lightgrey solid 2px;
+  border-radius: 20px;
+  margin-bottom: 1rem;
+  padding: 1rem 4rem;
+  width: 60%;
+}
+.posts .post .prof {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+.posts .post .prof:first-child {
+  align-items: center;
+}
+.posts .post .prof:first-child img {
+  height: 125px;
+  width: auto;
+  border-radius: 50%;
+}
+.posts .post .prof:last-child {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.posts .post .tags {
+  display: flex;
+  flex-direction: row;
+}
+.posts .post .tags > * {
+  border: lightgrey solid 2px;
+  border-radius: 10px;
+  padding: 0.2rem 0.4rem;
+  margin-right: 0.2rem;
+}
+.posts .post img {
+  border-radius: 10px;
+  position: relative;
+  width: 70%;
+  max-height: 70%;
+}
+
+/*# sourceMappingURL=posts.css.map */

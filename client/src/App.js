@@ -4,7 +4,7 @@ import Navbar from './components/navbar'
 import Footer from './components/footer'
 import Landing from './components/landing'
 import UserProfile from './components/userProfile'
-import Posts from './components/Posts'
+import Posts from './components/posts'
 
 function App() {
   return (
