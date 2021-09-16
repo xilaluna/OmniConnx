@@ -10,7 +10,7 @@ function Navbar() {
         </div>
         <div>
             <NavLink to='/prof'>profileTest</NavLink>
-            {/* <a href='/'>placeholder</a> */}
+            <NavLink to='/posts'>Posts</NavLink>
         </div>
     </div>
   )
