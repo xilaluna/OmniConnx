@@ -1,4 +1,5 @@
 import React from 'react'
+import { NavLink } from 'react-router-dom'
 import './navbar.css'
 
 function Navbar() {
@@ -8,8 +9,8 @@ function Navbar() {
             <a href='/'>Omniconnx</a>
         </div>
         <div>
-            <a href='/'>placeholder</a>
-            <a href='/'>placeholder</a>
+            <NavLink to='/prof'>profileTest</NavLink>
+            {/* <a href='/'>placeholder</a> */}
         </div>
     </div>
   )
