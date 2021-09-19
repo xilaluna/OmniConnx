@@ -9,10 +9,17 @@ db.tutorials = require("./tutorial.model.js")(mongoose);
 
 const UserSchema = new Schema(
   {
-
     password: { type: String, select: false },
     username: { type: String, required: true },
-    cards: [{ type: Schema.Types.ObjectId, ref: "Card" }],
+    first_name: { type: String, required: true },
+    last_name: { type: String, required: true },
+    phone: { type: String, required: true },
+    location_value: { type: String, required: true },
+    account_type: { type: String, required: true },
+    company_id: { type: Int, required: true },
+    calendar_id: { type: Int, required: true },
+    CV_ID: { type: Int, required: true },
+    users: [{ type: Schema.Types.ObjectId, ref: "User" }],
   },
   { timestamps: { createdAt: "created_at" } }
 )
