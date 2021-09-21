@@ -6,6 +6,7 @@ import Landing from './components/landing';
 import UserProfile from './components/userProfile';
 import Posts from './components/posts';
 import MakePost from './components/MakePost';
+import "bootstrap/dist/css/bootstrap.min.css"
 
 // Redux
 
@@ -59,4 +60,4 @@ function App() {
 	);
 }
 
-export default App;
+export default App
