@@ -6,11 +6,11 @@ function Navbar() {
   return (
     <div className='navbar'>
         <div>
-            <a href='/'>Omniconnx</a>
+          <NavLink to='/'>OmniConnx</NavLink>
         </div>
         <div>
-            <NavLink to='/prof'>profileTest</NavLink>
-            {/* <a href='/'>placeholder</a> */}
+          <NavLink to='/prof'>profileTest</NavLink>
+          <NavLink to='/posts'>Posts</NavLink>
         </div>
     </div>
   )

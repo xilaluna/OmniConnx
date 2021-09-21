@@ -1,0 +1,16 @@
+.button-hover {
+	border: none;
+	border-radius: 50px;
+	width: 8.45vw;
+	height: 5.07vh;
+	margin-left: 4%;
+	font-size: 0.8vw;
+	background-color: #76c9bf;
+	color: white;
+	transition: 0.2s;
+}
+
+.button-hover:hover {
+	background-color: #60afa6;
+	color: rgb(224, 224, 224);
+}
