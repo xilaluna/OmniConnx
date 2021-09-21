@@ -1,7 +1,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
-const db = require("./server/models/user");
+const db = require("./server/models/index");
 
 db.mongoose
   .connect(db.url, {

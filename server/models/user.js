@@ -4,10 +4,6 @@ const dbConfig = require("../data/omniconnx-db.js");
 
 //const Schema = mongoose.Schema
 
-const db = {};
-db.mongoose = mongoose
-db.url = dbConfig.url;
-//db.tutorials = require("./tutorial.model.js")(mongoose);
 module.exports = mongoose => {
 
   const UserSchema = mongoose.Schema(
