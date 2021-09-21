@@ -2,7 +2,12 @@ import React, { useDropzone } from 'react-dropzone';
 import { useState } from 'react';
 import './MakePost.css';
 
+// Redux imports
+
+import { useDispatch } from 'react-redux';
+import { submitPost } from '../reduxcomps/actions';
 function MakePost() {
+	const dispatch = useDispatch();
 	const [files, setFiles] = useState([]);
 	const { getRootProps, getInputProps } = useDropzone({
 		accept: 'image/*',
@@ -28,7 +33,15 @@ function MakePost() {
 		</div>
 	));
 
-	console.log(images);
+	// For Redux useState variables
+
+	const [titles, setTitle] = useState('');
+	const [descs, setDesc] = useState('');
+	// const [image, setImage] = useState('');
+	const [tag1s, setTag1] = useState('');
+	const [tag2s, setTag2] = useState('');
+	const [tag3s, setTag3] = useState('');
+
 	return (
 		<div
 			style={{
@@ -39,63 +52,31 @@ function MakePost() {
 			}}
 			className="main"
 		>
-			<form
-				style={{
-					display: 'flex',
-					flexDirection: 'column',
-					justifyContent: 'center',
-					alignItems: 'center',
-					border: 'lightgrey solid 2px',
-					borderRadius: 20,
-					color: 'gray',
-					margin: '2vw',
-					padding: '2vw',
-					width: '35vw',
-					height: '85vh',
-				}}
-				className="form"
-			>
+			<form className="form">
 				<input
 					type="text"
+					// className="text"
+					placeholder="Title..."
 					style={{
 						width: '25vw',
 						border: '1px #DDDDDD solid',
 						height: 25,
 						borderRadius: 6,
 					}}
-					className="title"
-					placeholder="Title..."
+					onChange={(e) => {
+						setTitle(e.target.value);
+					}}
 				/>
 				<textarea
 					type="text"
-					style={{
-						width: '30vw',
-						marginTop: '4vh',
-						minHeight: '20vh',
-						border: '1px #DDDDDD solid',
-						borderRadius: 6,
-						fontFamily: 'Arial, Helvetica, sans-serif',
-						fontSize: 12,
-					}}
 					className="text"
 					placeholder="Text (optional)"
+					onChange={(e) => {
+						setDesc(e.target.value);
+					}}
 				/>
 
-				<div
-					{...getRootProps()}
-					style={{
-						display: 'flex',
-						flexDirection: 'row',
-						justifyContent: 'center',
-						alignItems: 'center',
-						border: '1px #DDDDDD solid',
-						borderRadius: 20,
-						minHeight: '18vh',
-						width: '25vw',
-						marginTop: '4vh',
-					}}
-					className="img-input"
-				>
+				<div {...getRootProps()} className="img-input">
 					<input {...getInputProps()} />
 					{files.length !== 0 ? (
 						images
@@ -115,61 +96,53 @@ function MakePost() {
 						</div>
 					)}
 				</div>
+
 				<div
 					style={{ display: 'flex', flexDirection: 'row', marginTop: '4vh' }}
 				>
 					<h3>Tags</h3>
 					<input
 						type="text"
-						style={{
-							marginLeft: '1vw',
-							marginRight: '1vw',
-							width: '6vw',
-							height: '5vh',
-							fontSize: '1.1vw',
+						className="tags"
+						onChange={(e) => {
+							setTag1(e.target.value);
 						}}
 					/>
 					<input
 						type="text"
-						style={{
-							marginLeft: '1vw',
-							marginRight: '1vw',
-							width: '6vw',
-							height: '5vh',
-							fontSize: '1.1vw',
+						className="tags"
+						onChange={(e) => {
+							setTag2(e.target.value);
 						}}
 					/>
 					<input
 						type="text"
-						style={{
-							marginLeft: '1vw',
-							marginRight: '1vw',
-							width: '6vw',
-							height: '5vh',
-							fontSize: '1.1vw',
+						className="tags"
+						onChange={(e) => {
+							setTag3(e.target.value);
 						}}
 					/>
 				</div>
-				<div
-					style={{
-						display: 'flex',
-						flexDirection: 'row',
-						marginTop: '15vh',
-						width: '35vw',
-						justifyContent: 'flex-end',
-						alignItems: 'flex-end',
-					}}
-				>
+				<div className="button-bottoms">
 					<button
 						style={{
 							marginRight: '1vw',
 						}}
 						className="button-hover"
+						type="submit"
 					>
 						{' '}
 						Cancel{' '}
 					</button>
-					<button className="button-hover"> Submit </button>
+					<button
+						className="button-hover"
+						onClick={(e) => {
+							dispatch(submitPost(titles, descs, images, tag1s, tag2s, tag3s));
+						}}
+					>
+						{' '}
+						Submit{' '}
+					</button>
 				</div>
 			</form>
 		</div>
