@@ -1,5 +1,5 @@
 import "./App.css"
-import { HashRouter as Router, Route } from "react-router-dom"
+import { HashRouter as Router, Route, Switch } from "react-router-dom"
 import NavigationBar from "./components/Navbar/NavigationBar"
 import Footer from "./components/footer"
 import Landing from "./components/landing"
@@ -48,10 +48,12 @@ function App() {
       <Router>
         <div className="App">
           <NavigationBar />
-          <Route exact path="/" component={Landing} />
-          <Route path="/prof" component={UserProfile} />
-          <Route path="/posts" component={Posts} />
-          <Route path="/makepost" component={MakePost} />
+          <Switch>
+            <Route exact path="/" component={Landing} />
+            <Route path="/prof" component={UserProfile} />
+            <Route path="/posts" component={Posts} />
+            <Route path="/makepost" component={MakePost} />
+          </Switch>
           <Footer />
         </div>
       </Router>

@@ -40,3 +40,10 @@ In terminal:
 '''
 npm start
 '''
+
+## How to run React Front-End
+
+In terminal:
+`cd client`
+`npm install`
+`npm start` or `yarn start`
