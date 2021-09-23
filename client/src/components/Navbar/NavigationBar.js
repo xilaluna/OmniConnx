@@ -15,14 +15,14 @@ function NavigationBar() {
     //     <NavLink to="/posts">Posts</NavLink>
     //   </div>
     // </div>
-    <Navbar bg="dark" expand="lg" variant="dark">
+    <Navbar bg="dark" expand="lg" variant="dark" className='navbar'>
       <Container>
-        <Navbar.Brand href="#home">OmniConnx</Navbar.Brand>
+        <Navbar.Brand href="#">OmniConnx</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link href="home">Home</Nav.Link>
-            <Nav.Link href="link">Link</Nav.Link>
+            <Nav.Link href="#prof">profileTest</Nav.Link>
+            <Nav.Link href="#posts">Posts</Nav.Link>
           </Nav>
           <Nav>
             <LoginModal />
