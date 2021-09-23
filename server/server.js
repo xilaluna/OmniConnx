@@ -21,7 +21,7 @@ app.use(express.urlencoded({ extended: true }));
 //   res.json({ message: "Test" });
 // });
 
-const db = require("./server/models/index");
+const db = require("./models/index");
 db.mongoose
   .connect(db.url, {
     useNewUrlParser: true,
@@ -46,7 +46,7 @@ db.mongoose
 //       console.log(err);
 //   }
 // });
-require("./server/routes/userRoutes")(app);
+require("./routes/userRoutes")(app);
 // set port, listen for requests
 const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => {
