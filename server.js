@@ -35,6 +35,17 @@ app.get("/", (req, res) => {
   res.json({ message: "Test" });
 });
 
+  
+
+
+// app.post("/user", (req, res) => {
+//   try{
+//       const { first_name } = req.body;
+//   } catch (err) {
+//       console.log(err);
+//   }
+// });
+require("./server/routes/userRoutes")(app);
 // set port, listen for requests
 const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => {

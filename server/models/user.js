@@ -8,17 +8,17 @@ module.exports = mongoose => {
 
   const UserSchema = mongoose.Schema(
     {
-      password: { type: String, select: false },
-      username: { type: String, required: true },
+      // password: { type: String, select: false },
+      // username: { type: String, required: true },
       first_name: { type: String, required: true },
-      last_name: { type: String, required: true },
-      phone: { type: String, required: true },
-      location_value: { type: String, required: true },
-      account_type: { type: String, required: true },
-      company_id: { type: Number, required: true },
-      calendar_id: { type: String, required: true },
-      CV_ID: { type: Number, required: true },
-      users: [{ type: mongoose.Schema.Types.ObjectId, ref: "User" }],
+      // last_name: { type: String, required: true },
+      // phone: { type: String, required: true },
+      // location_value: { type: String, required: true },
+      // account_type: { type: String, required: true },
+      // company_id: { type: Number, required: true },
+      // calendar_id: { type: String, required: true },
+      // CV_ID: { type: Number, required: true },
+       users: [{ type: mongoose.Schema.Types.ObjectId, ref: "user" }],
     },
     { timestamps: { createdAt: "created_at" } }
     
@@ -59,7 +59,7 @@ module.exports = mongoose => {
   */
 
   //module.exports = mongoose.model("User", UserSchema)
-  const UserClass = mongoose.model("User", UserSchema);
+  const UserClass = mongoose.model("user", UserSchema);
   return UserClass
 };
 //module.exports = db;
