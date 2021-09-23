@@ -58,10 +58,9 @@ function Posts() {
 	return (
 		<div className="posts">
 			<NavLink className="createPost" to="/makepost">
-				{' '}
 				+ Create A Post
 			</NavLink>
-			{post(examplePostData)}
+			<div className='displayPosts'>{post(examplePostData)}</div>
 		</div>
 	);
 }
