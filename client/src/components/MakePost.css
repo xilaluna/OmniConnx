@@ -21,7 +21,7 @@
 	justify-content: center;
 	align-items: center;
 	border: lightgrey solid 2px;
-	border-radius: 20;
+	border-radius: 10px;
 	color: gray;
 	margin: 2vw;
 	padding: 2vw;
@@ -60,7 +60,7 @@
 .button-bottoms {
 	display: flex;
 	flex-direction: row;
-	margin-top: 15vh;
+	margin: 10vh 2rem 0 0;
 	width: 35vw;
 	justify-content: flex-end;
 	align-items: flex-end;
