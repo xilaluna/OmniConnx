@@ -36,9 +36,6 @@ db.mongoose
   });
 
 
-  
-
-
 // app.post("/user", (req, res) => {
 //   try{
 //       const { first_name } = req.body;

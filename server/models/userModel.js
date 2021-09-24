@@ -1,4 +1,6 @@
 module.exports = mongoose => {
+
+//Implement random id generation later
   const UserSchema = mongoose.Schema(
     {
        first_name: { type: String, required: true },
