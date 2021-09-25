@@ -1,37 +1,36 @@
 const db = require("../models");
-const User = db.users;
-
+const Post = db.posts;
 
 exports.create = (req, res) => {
     // Validate request
-    if (!req.body.first_name) {
-      res.status(400).send({ message: "Content can not be empty!" });
+    if (!req.body.title) {
+      res.status(400).send({ message: "Post has to have a title!" });
       return;
     }
   
-    // Create a User
-    const user = new User({
-      first_name: req.body.first_name,
-      last_name: req.body.last_name
+    // Create a post
+    const post = new Post({
+      title: req.body.title,
+      content: req.body.content
     });
-    // Save User in the database
-    user
-      .save(user)
+    // Save post in the database
+    post
+      .save(post)
       .then(data => {
         res.send(data);
       })
       .catch(err => {
         res.status(500).send({
           message:
-            err.message || "Some error occurred while creating the User."
+            err.message || "Some error occurred while creating the post."
         });
       });
   };
 
-// Retrieve all Users from the database.
+// Retrieve all posts from the database.
 exports.findAll = (req, res) => {
-  const first_name = req.query.first_name;
-  var condition = first_name ? { first_name: { $regex: new RegExp(first_name), $options: "i" } } : {};
+  const title = req.query.title;
+  var condition = title ? { title: { $regex: new RegExp(title), $options: "i" } } : {};
 
   User.find(condition)
     .then(data => {
@@ -40,12 +39,12 @@ exports.findAll = (req, res) => {
     .catch(err => {
       res.status(500).send({
         message:
-          err.message || "Some error occurred while retrieving users."
+          err.message || "Some error occurred while retrieving posts."
       });
     });
 };
 
-// Find a single User with an id
+// Find a single post with an id
 exports.findOne = (req, res) => {
   const id = req.params.id;
 
@@ -61,7 +60,7 @@ exports.findOne = (req, res) => {
         .send({ message: "Error retrieving User  with id=" + id });
     });
 };
-// Update a User by the id in the request
+// Update a post by the id in the request
 exports.update = (req, res) => {
   if (!req.body) {
     return res.status(400).send({
@@ -75,18 +74,18 @@ exports.update = (req, res) => {
     .then(data => {
       if (!data) {
         res.status(404).send({
-          message: `Cannot update User with id=${id}. Maybe User was not found!`
+          message: `Cannot update post with id=${id}. Maybe post was not found!`
         });
-      } else res.send({ message: "User was updated successfully." });
+      } else res.send({ message: "Post was updated successfully." });
     })
     .catch(err => {
       res.status(500).send({
-        message: "Error updating User with id=" + id
+        message: "Error updating Post with id=" + id
       });
     });
 };
 
-// Delete a User with the specified id in the request
+// Delete a post with the specified id in the request
 exports.delete = (req, res) => {
   const id = req.params.id;
 
@@ -94,34 +93,33 @@ exports.delete = (req, res) => {
     .then(data => {
       if (!data) {
         res.status(404).send({
-          message: `Cannot delete User with id=${id}. Maybe User was not found!`
+          message: `Cannot delete Post with id=${id}. Maybe Post was not found!`
         });
       } else {
         res.send({
-          message: "User was deleted successfully!"
+          message: "Post was deleted successfully!"
         });
       }
     })
     .catch(err => {
       res.status(500).send({
-        message: "Could not delete User with id=" + id
+        message: "Could not delete Post with id=" + id
       });
     });
 };
 
-// Delete all Tutorials from the database.
+// Delete all posts from the database.
 exports.deleteAll = (req, res) => {
   User.deleteMany({})
     .then(data => {
       res.send({
-        message: `${data.deletedCount} Users were deleted successfully!`
+        message: `${data.deletedCount} Posts were deleted successfully!`
       });
     })
     .catch(err => {
       res.status(500).send({
         message:
-          err.message || "Some error occurred while removing all Users."
+          err.message || "Some error occurred while removing all Posts."
       });
     });
 };
-
