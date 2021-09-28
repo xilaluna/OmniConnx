@@ -120,31 +120,22 @@ exports.logout = (req, res) => {
 };
 */
 
-exports.create = (req, res) => {
-  // Validate request
-  if (!req.body.first_name) {
-    res.status(400).send({ message: "Content can not be empty!" });
-    return;
+exports.create = async (req, res) => {
+  try{
+    const { username} = req.body;
+
+    const newUser = new User({
+      username
+    });
+    
+    const user = await newUser.save();
+
+    res.json(user);
+  } catch(err){
+    console.error(err);
+    res.status(500).send();
   }
 
-  // Create a User
-  const user = new User({
-    //first_name: req.body.first_name,
-    //last_name: req.body.last_name
-    username: req.body.username
-  });
-  // Save User in the database
-  user
-    .save(user)
-    .then(data => {
-      res.send(data);
-    })
-    .catch(err => {
-      res.status(500).send({
-        message:
-          err.message || "Some error occurred while creating the User."
-      });
-    });
 };
 
 

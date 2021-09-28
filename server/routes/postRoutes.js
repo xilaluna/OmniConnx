@@ -1,10 +1,13 @@
+/*
 module.exports = app => {
     const posts = require("../controllers/postController.js");
     const auth = require("../middleware/auth")
     var router = require("express").Router();
   
   // Create a new post
-  router.post("/create", auth, posts.create);
+  //For auth
+  //  router.post("/create", auth, posts.create);
+  router.post("/create", posts.create);
 
   // // Update a user with id
   router.put("/update/:id", posts.update);
@@ -15,8 +18,8 @@ module.exports = app => {
 
 // FOR TESTING PURPOSES ONLY
   // Retrieve all posts
-  router.get("/", auth, posts.findAll);
-
+  //router.get("/", auth, posts.findAll);
+  router.get("/", posts.findAll);
   // // Retrieve a single user with id
   router.get("/:id", posts.findOne);
  
@@ -25,4 +28,4 @@ module.exports = app => {
 
   app.use('/post', router);
 };
-    
+*/

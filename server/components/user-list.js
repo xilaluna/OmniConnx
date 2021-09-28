@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 export default class UserList extends Component {
   constructor(props) {
     super(props);
-    this.onChangeSearchFirstName = this.onChangeSearchFirstName.bind(this);
+    //this.onChangeSearchFirstName = this.onChangeSearchFirstName.bind(this);
     this.retrieveUsers = this.retrieveUsers.bind(this);
     this.refreshList = this.refreshList.bind(this);
     this.setActiveUser = this.setActiveUser.bind(this);
@@ -15,6 +15,7 @@ export default class UserList extends Component {
     this.state = {
       users: [],
       currentUser: null,
+      //array of Users
       currentIndex: -1,
       searchUsername: ""
     };
@@ -88,7 +89,9 @@ export default class UserList extends Component {
 */
   
   render() {
-    const { searchUsername, users, currentUser, currentIndex } = this.state;
+    //const { searchUsername, users, currentUser, currentIndex } = this.state;
+    const { users, currentUser } = this.state;
+
 /*
 <div className="col-md-8">
           <div className="input-group mb-3">

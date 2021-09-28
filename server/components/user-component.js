@@ -25,7 +25,7 @@ export default class User extends Component {
   }
 
   onChangeUsername(e) {
-    const title = e.target.value;
+    const username = e.target.value;
 
     this.setState(function(prevState) {
       return {
@@ -49,6 +49,7 @@ export default class User extends Component {
         console.log(e);
       });
   }
+  
 /*
   updateUser() {
     UserDataService.update(
