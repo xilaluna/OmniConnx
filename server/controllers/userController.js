@@ -7,6 +7,7 @@ const User = db.users;
 dotenv.config();
 
 // Register
+/*
 exports.signup = async (req, res) => {
 
   try {
@@ -60,8 +61,6 @@ exports.signup = async (req, res) => {
     res.cookie("token", token, {
       httpOnly: true,
     }).send();
-
-  
 
   } catch (err) {
     console.error(err);
@@ -119,14 +118,34 @@ exports.logout = (req, res) => {
     })
     .send();
 };
+*/
 
+exports.create = (req, res) => {
+  // Validate request
+  if (!req.body.first_name) {
+    res.status(400).send({ message: "Content can not be empty!" });
+    return;
+  }
 
-
-
-
-
-
-
+  // Create a User
+  const user = new User({
+    //first_name: req.body.first_name,
+    //last_name: req.body.last_name
+    username: req.body.username
+  });
+  // Save User in the database
+  user
+    .save(user)
+    .then(data => {
+      res.send(data);
+    })
+    .catch(err => {
+      res.status(500).send({
+        message:
+          err.message || "Some error occurred while creating the User."
+      });
+    });
+};
 
 
 //FOR TESTING PURPOSES
