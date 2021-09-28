@@ -1,24 +1,26 @@
 module.exports = app => {
     const posts = require("../controllers/postController.js");
-  
+    const auth = require("../middleware/auth")
     var router = require("express").Router();
   
-  // Create a new user
-  router.post("/create", posts.create);
+  // Create a new post
+  router.post("/create", auth, posts.create);
 
-  // Retrieve all users
-  router.get("/", posts.findAll);
-
-  // Retrieve a single user with id
-  router.get("/:id", posts.findOne);
-
-  // Update a user with id
+  // // Update a user with id
   router.put("/update/:id", posts.update);
 
-  // Delete a user with id
+  // // Delete a user with id
   router.delete("/delete/:id", posts.delete);
+ 
 
-  // delete all users
+// FOR TESTING PURPOSES ONLY
+  // Retrieve all posts
+  router.get("/", auth, posts.findAll);
+
+  // // Retrieve a single user with id
+  router.get("/:id", posts.findOne);
+ 
+  // // delete all users
   router.delete("/delete_all", posts.deleteAll);
 
   app.use('/post', router);

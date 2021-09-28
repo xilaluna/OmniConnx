@@ -1,6 +1,8 @@
+const { posts } = require("../models");
 const db = require("../models");
 const Post = db.posts;
 
+// Create a new post
 exports.create = async (req, res) => {
     try{
       const { title, content } = req.body;
@@ -14,44 +16,59 @@ exports.create = async (req, res) => {
 
       res.json(savedPost);
     } catch(err){
-      consosle.error(err);
+      console.error(err);
       res.status(500).send();
     }
+
   };
 
-// Retrieve all posts from the database.
-exports.findAll = (req, res) => {
-  const title = req.query.title;
-  var condition = title ? { title: { $regex: new RegExp(title), $options: "i" } } : {};
 
-  User.find(condition)
-    .then(data => {
-      res.send(data);
-    })
-    .catch(err => {
-      res.status(500).send({
-        message:
-          err.message || "Some error occurred while retrieving posts."
-      });
-    });
-};
+      // var post = new Post(req.body);
+  // post.author = req.user._id;
+  // if (req.user) { var post = new Post(req.body); 
+  //   post.author = req.user._id;
+  //   post
+  //   .save()
+  //   .then(post => {
+  //        return User.findById(req.user._id);
+  //   })
+  //   .then(user => {
+  //       user.posts.unshift(post);
+  //       user.save();
+  //       res.redirect(`/`);
+  //   })
+  //   .catch(err => {
+  //       console.log(err.message);
+  //   });
+  //   } else {
+  //     return res.status(401); 
+  //   }
 
-// Find a single post with an id
-exports.findOne = (req, res) => {
-  const id = req.params.id;
 
-  User.findById(id)
-    .then(data => {
-      if (!data)
-        res.status(404).send({ message: "Not found post with id " + id });
-      else res.send(data);
-    })
-    .catch(err => {
-      res
-        .status(500)
-        .send({ message: "Error retrieving post with id=" + id });
-    });
-};
+  // CREATE
+  // app.post("/cards/new", (req, res) => { 
+  //   var card = new Card(req.body);
+  //   card.author = req.user._id;
+
+  //   if (req.user) { var card = new Card(req.body); 
+  //     card.author = req.user._id;
+  //     card
+  //     .save()
+  //     .then(card => {
+  //         return User.findById(req.user._id);
+  //     })
+  //     .then(user => {
+  //         user.cards.unshift(card);
+  //         user.save();
+  //         res.redirect(`/`);
+  //     })
+  //     .catch(err => {
+  //         console.log(err.message);
+  //     });
+  //     } else {
+  //       return res.status(401); 
+  //     }
+
 // Update a post by the id in the request
 exports.update = (req, res) => {
   if (!req.body) {
@@ -62,7 +79,7 @@ exports.update = (req, res) => {
 
   const id = req.params.id;
 
-  User.findByIdAndUpdate(id, req.body, { useFindAndModify: false })
+  Post.findByIdAndUpdate(id, req.body, { useFindAndModify: false })
     .then(data => {
       if (!data) {
         res.status(404).send({
@@ -81,7 +98,7 @@ exports.update = (req, res) => {
 exports.delete = (req, res) => {
   const id = req.params.id;
 
-  User.findByIdAndRemove(id)
+  Post.findByIdAndRemove(id)
     .then(data => {
       if (!data) {
         res.status(404).send({
@@ -100,9 +117,42 @@ exports.delete = (req, res) => {
     });
 };
 
+
+//FOR TESTING PURPOSES ONLY
+
+
+// Retrieve all posts from the database.
+exports.findAll = async (req, res) => {
+  try{
+    const posts = await Post.find();
+    res.json(posts);
+  } catch(err){
+    consosle.error(err);
+    res.status(500).send();
+  }
+};
+
+// Find a single post with an id
+exports.findOne = (req, res) => {
+  const id = req.params.id;
+
+  Post.findById(id)
+    .then(data => {
+      if (!data)
+        res.status(404).send({ message: "Not found post with id " + id });
+      else res.send(data);
+    })
+    .catch(err => {
+      res
+        .status(500)
+        .send({ message: "Error retrieving post with id=" + id });
+    });
+};
+
+
 // Delete all posts from the database.
 exports.deleteAll = (req, res) => {
-  User.deleteMany({})
+  Post.deleteMany({})
     .then(data => {
       res.send({
         message: `${data.deletedCount} Posts were deleted successfully!`

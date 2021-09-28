@@ -129,16 +129,12 @@ exports.logout = (req, res) => {
 
 
 
-
-
-
-
-
+//FOR TESTING PURPOSES
 
 // Retrieve all Users from the database.
 exports.findAll = (req, res) => {
-  const first_name = req.query.first_name;
-  var condition = first_name ? { first_name: { $regex: new RegExp(first_name), $options: "i" } } : {};
+  const username = req.query.username;
+  var condition = username ? { username: { $regex: new RegExp(username), $options: "i" } } : {};
 
   User.find(condition)
     .then(data => {
@@ -165,9 +161,10 @@ exports.findOne = (req, res) => {
     .catch(err => {
       res
         .status(500)
-        .send({ message: "Error retrieving User  with id=" + id });
+        .send({ message: "Error retrieving User with id=" + id });
     });
 };
+
 // Update a User by the id in the request
 exports.update = (req, res) => {
   if (!req.body) {
