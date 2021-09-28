@@ -1,30 +1,22 @@
 const db = require("../models");
 const Post = db.posts;
 
-exports.create = (req, res) => {
-    // Validate request
-    if (!req.body.title) {
-      res.status(400).send({ message: "Post has to have a title!" });
-      return;
-    }
-  
-    // Create a post
-    const post = new Post({
-      title: req.body.title,
-      content: req.body.content
-    });
-    // Save post in the database
-    post
-      .save(post)
-      .then(data => {
-        res.send(data);
-      })
-      .catch(err => {
-        res.status(500).send({
-          message:
-            err.message || "Some error occurred while creating the post."
-        });
+exports.create = async (req, res) => {
+    try{
+      const { title, content } = req.body;
+
+      const newPost = new Post({
+        title,
+        content,
       });
+      
+      const savedPost = await newPost.save();
+
+      res.json(savedPost);
+    } catch(err){
+      consosle.error(err);
+      res.status(500).send();
+    }
   };
 
 // Retrieve all posts from the database.
@@ -51,13 +43,13 @@ exports.findOne = (req, res) => {
   User.findById(id)
     .then(data => {
       if (!data)
-        res.status(404).send({ message: "Not found User with id " + id });
+        res.status(404).send({ message: "Not found post with id " + id });
       else res.send(data);
     })
     .catch(err => {
       res
         .status(500)
-        .send({ message: "Error retrieving User  with id=" + id });
+        .send({ message: "Error retrieving post with id=" + id });
     });
 };
 // Update a post by the id in the request
