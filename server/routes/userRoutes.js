@@ -1,7 +1,6 @@
 module.exports = app => {
-    const users = require("../controllers/userController.js");
-  
-    var router = require("express").Router();
+  const users = require("../controllers/userController.js");
+  var router = require("express").Router();
   
   // Create a new user
   router.post("/signup", users.signup);
@@ -12,19 +11,22 @@ module.exports = app => {
   // Logout a user
   router.get("/logout", users.logout);
 
-  // Retrieve all users
+
+
+  // FOR TESTING PURPOSES ONLY
+  // // Retrieve all users
   router.get("/", users.findAll);
 
-  // Retrieve a single user with id
+  // // Retrieve a single user with id
   router.get("/:id", users.findOne);
 
-  // Update a user with id
+  // // Update a user with id
   router.put("/update/:id", users.update);
 
-  // Delete a user with id
+  // // Delete a user with id
   router.delete("/delete/:id", users.delete);
 
-  // delete all users
+  // // delete all users
   router.delete("/delete_all", users.deleteAll);
 
   app.use('/user', router);

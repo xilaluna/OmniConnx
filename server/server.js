@@ -1,6 +1,6 @@
 const express = require("express");
 const dotenv = require("dotenv");
-const bodyParser = require("body-parser");
+const cookieParser = require("cookie-parser");
 const cors = require("cors");
 
 dotenv.config();
@@ -14,6 +14,7 @@ var corsOptions = {
 app.use(cors(corsOptions));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(cookieParser());
 
 //database
 const db = require("./models/index");
