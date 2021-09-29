@@ -12,7 +12,7 @@ class UserDataService {
   create(data) {
     return http.post("/users", data);
   }
-
+/*
   update(id, data) {
     return http.put(`/users/${id}`, data);
   }
@@ -28,6 +28,7 @@ class UserDataService {
   findByTitle(title) {
     return http.get(`/users?title=${title}`);
   }
+  */
 }
 
 export default new UserDataService();
