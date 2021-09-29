@@ -1,11 +1,11 @@
 import "./App.css"
 import { HashRouter as Router, Route, Switch } from "react-router-dom"
 import NavigationBar from "./components/Navbar/NavigationBar"
-import Footer from "./components/footer"
-import Landing from "./components/landing"
+import Footer from "./components/Footer/Footer"
+import Landing from "./components/Landing/Landing"
 import UserProfile from "./components/userProfile"
-import Posts from "./components/posts"
-import MakePost from "./components/MakePost"
+import Posts from "./components/Posts/Posts"
+import MakePost from "./components/MakePost/MakePost"
 import "bootstrap/dist/css/bootstrap.min.css"
 
 // Redux

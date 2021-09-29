@@ -5,7 +5,7 @@ import './MakePost.css';
 // Redux imports
 
 import { useDispatch } from 'react-redux';
-import { submitPost } from '../reduxcomps/actions';
+import { submitPost } from '../../reduxcomps/actions';
 function MakePost() {
 	const dispatch = useDispatch();
 	const [files, setFiles] = useState([]);
