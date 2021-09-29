@@ -1,6 +1,18 @@
 const express = require("express");
-const bodyParser = require("body-parser");
+const dotenv = require("dotenv");
+const cookieParser = require("cookie-parser");
 const cors = require("cors");
+//const app = require('/server/www/bin/app.js');
+const port = 5555;
+//"start": "concurrently \"react-scripts start\" \"cd backend && nodemon server\"",
+
+
+/*app.listen(port, () => {
+  console.log(`server is running on port ${port}`)
+})
+*/
+
+dotenv.config();
 
 const app = express();
 
@@ -9,18 +21,11 @@ var corsOptions = {
 };
 
 app.use(cors(corsOptions));
-
-// parse requests of content-type - application/json
 app.use(express.json());
-
-// parse requests of content-type - application/x-www-form-urlencoded
 app.use(express.urlencoded({ extended: true }));
+app.use(cookieParser());
 
-// simple route
-// app.get("/", (req, res) => {
-//   res.json({ message: "Test" });
-// });
-
+//database
 const db = require("./models/index");
 db.mongoose
   .connect(db.url, {
@@ -36,9 +41,6 @@ db.mongoose
   });
 
 
-  
-
-
 // app.post("/user", (req, res) => {
 //   try{
 //       const { first_name } = req.body;
@@ -46,9 +48,8 @@ db.mongoose
 //       console.log(err);
 //   }
 // });
+
 require("./routes/userRoutes")(app);
+//require("./routes/postRoutes")(app);
 // set port, listen for requests
-const PORT = process.env.PORT || 8080;
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}.`);
-});
+//

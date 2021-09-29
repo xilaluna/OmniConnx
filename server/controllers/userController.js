@@ -1,36 +1,150 @@
 const db = require("../models");
+const bcrypt = require('bcryptjs');
+const jwt = require('jsonwebtoken');
+const dotenv = require('dotenv');
 const User = db.users;
 
+dotenv.config();
 
-exports.create = (req, res) => {
-    // Validate request
-    if (!req.body.first_name) {
-      res.status(400).send({ message: "Content can not be empty!" });
-      return;
-    }
-  
-    // Create a User
-    const user = new User({
-      first_name: req.body.first_name,
-    });
-    // Save User in the database
-    user
-      .save(user)
-      .then(data => {
-        res.send(data);
-      })
-      .catch(err => {
-        res.status(500).send({
-          message:
-            err.message || "Some error occurred while creating the User."
-        });
+// Register
+/*
+exports.signup = async (req, res) => {
+
+  try {
+    const { username, password, passwordVerify } = req.body;
+
+    if (!username || !password || !passwordVerify)
+      return res
+        .status(400)
+        .json({ errorMessage: "Please enter all required fields." })
+
+    if (password.length < 6)
+      return res
+        .status(400)
+        .json({ errorMessage: "Password must be at least 6 characters long." })
+
+    if (password !== passwordVerify)
+      return res.status(400).json({
+        errorMessage: "Passwords do not match."
       });
-  };
+    
+    const existingUser = await User.findOne({ username });
+    
+    if (existingUser)
+      return res
+        .status(400)
+        .json({ errorMessage: "Username already exists." });
+
+    // hash the password
+    const salt = await bcrypt.genSalt();
+    const passwordHash = await bcrypt.hash(password, salt);
+
+    // save a new user account to the database
+    
+    const newUser = new User({
+      username,
+      passwordHash
+    });
+
+    const savedUser = await newUser.save();
+
+    //sign the token
+
+    const token = jwt.sign(
+      {
+        user: savedUser._id,
+      },
+      process.env.JWT_SECRET
+    );
+
+    // send the token in a HTTP-only cookie
+    res.cookie("token", token, {
+      httpOnly: true,
+    }).send();
+
+  } catch (err) {
+    console.error(err);
+    res.status(500).send();
+  }
+    
+};
+
+// log in a user
+exports.login = async (req, res) => {
+  try {
+    const { username, password } = req.body;
+    //validate 
+    if (!username || !password)
+    return res
+      .status(400)
+      .json({ errorMessage: "Please enter all required fields." })
+    
+    const existingUser = await User.findOne({ username });
+    if (!existingUser)
+      return res
+        .status(401)
+        .json({ errorMessage: "Wrong username or password" });
+    const passwordCorrect = await bcrypt.compare(
+      password,
+      existingUser.passwordHash
+    );
+    if (!passwordCorrect)
+      return res
+        .status(401)
+        .json({ errorMessage: "Wrong username or password" });
+
+    //sign the token
+    const token = jwt.sign(
+      {
+        user: existingUser._id,
+      },
+      process.env.JWT_SECRET
+    );
+    // send the token in a HTTP-only cookie
+    res.cookie("token", token, {
+      httpOnly: true,
+    }).send();
+  } catch (err) {
+    console.error(err);
+    res.status(500).send();
+  }
+};
+
+exports.logout = (req, res) => {
+  res
+    .cookie("token", "", {
+      httpOnly: true,
+      expires: new Date(0),
+    })
+    .send();
+};
+*/
+
+exports.create = async (req, res) => {
+  try{
+    const { username} = req.body;
+
+    const newUser = new User({
+      username
+    });
+    
+    const user = await newUser.save();
+
+    res.json(user);
+  } catch(err){
+    console.error(err);
+    res.status(500).send();
+  }
+
+};
+
+
+//FOR TESTING PURPOSES
 
 // Retrieve all Users from the database.
 exports.findAll = (req, res) => {
-  const first_name = req.query.first_name;
-  var condition = first_name ? { first_name: { $regex: new RegExp(first_name), $options: "i" } } : {};
+  const username = req.query.username;
+  var condition = username ? { username: { $regex: new RegExp(username), $options: "i" } } : {};
 
   User.find(condition)
     .then(data => {
@@ -39,7 +153,7 @@ exports.findAll = (req, res) => {
     .catch(err => {
       res.status(500).send({
         message:
-          err.message || "Some error occurred while retrieving tutorials."
+          err.message || "Some error occurred while retrieving users."
       });
     });
 };
@@ -57,9 +171,10 @@ exports.findOne = (req, res) => {
     .catch(err => {
       res
         .status(500)
-        .send({ message: "Error retrieving User  with id=" + id });
+        .send({ message: "Error retrieving User with id=" + id });
     });
 };
+
 // Update a User by the id in the request
 exports.update = (req, res) => {
   if (!req.body) {
