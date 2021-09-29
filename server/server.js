@@ -6,18 +6,12 @@ const cors = require("cors");
 const port = 5555;
 //"start": "concurrently \"react-scripts start\" \"cd backend && nodemon server\"",
 
-
-/*app.listen(port, () => {
-  console.log(`server is running on port ${port}`)
-})
-*/
-
 dotenv.config();
 
 const app = express();
 
 var corsOptions = {
-  origin: "http://localhost:8081"
+  origin: "http://localhost:5555"
 };
 
 app.use(cors(corsOptions));
@@ -50,6 +44,12 @@ db.mongoose
 // });
 
 require("./routes/userRoutes")(app);
+
+
+app.listen(port, () => {
+  console.log(`server is running on port ${port}`)
+})
+
 //require("./routes/postRoutes")(app);
 // set port, listen for requests
 //
