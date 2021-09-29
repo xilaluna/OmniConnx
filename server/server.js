@@ -3,21 +3,15 @@ const dotenv = require("dotenv");
 const cookieParser = require("cookie-parser");
 const cors = require("cors");
 //const app = require('/server/www/bin/app.js');
-const port = 5555;
+const port = 5000;
 //"start": "concurrently \"react-scripts start\" \"cd backend && nodemon server\"",
-
-
-/*app.listen(port, () => {
-  console.log(`server is running on port ${port}`)
-})
-*/
 
 dotenv.config();
 
 const app = express();
 
 var corsOptions = {
-  origin: "http://localhost:8081"
+  origin: "http://localhost:5000"
 };
 
 app.use(cors(corsOptions));
@@ -40,7 +34,6 @@ db.mongoose
     process.exit();
   });
 
-
 // app.post("/user", (req, res) => {
 //   try{
 //       const { first_name } = req.body;
@@ -53,3 +46,7 @@ require("./routes/userRoutes")(app);
 //require("./routes/postRoutes")(app);
 // set port, listen for requests
 //
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}.`);
+});
