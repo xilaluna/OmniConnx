@@ -3,7 +3,7 @@ const dotenv = require("dotenv");
 const cookieParser = require("cookie-parser");
 const cors = require("cors");
 //const app = require('/server/www/bin/app.js');
-const port = 5555;
+const port = 5000;
 //"start": "concurrently \"react-scripts start\" \"cd backend && nodemon server\"",
 
 dotenv.config();
@@ -11,7 +11,7 @@ dotenv.config();
 const app = express();
 
 var corsOptions = {
-  origin: "http://localhost:5555"
+  origin: "http://localhost:5000"
 };
 
 app.use(cors(corsOptions));

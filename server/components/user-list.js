@@ -16,8 +16,8 @@ export default class UserList extends Component {
       users: [],
       currentUser: null,
       //array of Users
-      currentIndex: -1,
-      searchUsername: ""
+      currentIndex: -1
+      //searchUsername: ""
     };
   }
 
@@ -90,7 +90,7 @@ export default class UserList extends Component {
   
   render() {
     //const { searchUsername, users, currentUser, currentIndex } = this.state;
-    const { users, currentUser } = this.state;
+    const { users, currentUser, currentIndex } = this.state;
 
 /*
 <div className="col-md-8">
@@ -140,6 +140,21 @@ export default class UserList extends Component {
       <div className="list row">
         <div className="col-md-6">
           <h4>User List</h4>
+          <ul className="list-group">
+            {users &&
+              users.map((user, index) => (
+                <li
+                  className={
+                    "list-group-item " +
+                    (index === currentIndex ? "active" : "")
+                  }
+                  onClick={() => this.setActiveUser(user, index)}
+                  key={index}
+                >
+                  {user.username}
+                </li>
+              ))}
+          </ul>
 
         </div>
         <div className="col-md-6">
@@ -154,7 +169,7 @@ export default class UserList extends Component {
               </div>
               
               <Link
-                to={"/users/" + currentUser.id}
+                to={"/user/" + currentUser.id}
                 className="badge badge-warning"
               >
                 Edit
