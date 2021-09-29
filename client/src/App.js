@@ -1,7 +1,7 @@
 import "./App.css"
 import { HashRouter as Router, Route, Switch } from "react-router-dom"
 import NavigationBar from "./components/Navbar/NavigationBar"
-import Footer from "./components/footer"
+import Footer from "./components/Footer/Footer"
 import Landing from "./components/landing"
 import UserProfile from "./components/userProfile"
 import Posts from "./components/posts"
