@@ -2,7 +2,7 @@ import React from "react"
 // import { NavLink } from "react-router-dom"
 import { Navbar, Container, Nav } from "react-bootstrap"
 import LoginModal from "./LoginModal"
-import "./navbar.css"
+import "./Navbar.css"
 
 function NavigationBar() {
   return (
@@ -15,7 +15,7 @@ function NavigationBar() {
     //     <NavLink to="/posts">Posts</NavLink>
     //   </div>
     // </div>
-    <Navbar bg="dark" expand="lg" variant="dark" className='navbar'>
+    <Navbar bg="dark" expand="lg" variant="dark" className="navbar">
       <Container>
         <Navbar.Brand href="#">OmniConnx</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
