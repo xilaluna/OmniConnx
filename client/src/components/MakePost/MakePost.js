@@ -38,10 +38,10 @@ function MakePost() {
 	const [titles, setTitle] = useState('');
 	const [descs, setDesc] = useState('');
 	// const [image, setImage] = useState('');
-	const [tag1s, setTag1] = useState('');
-	const [tag2s, setTag2] = useState('');
-	const [tag3s, setTag3] = useState('');
+	const [tagTemp, setTempTag] = useState('');
+	const [tagsSt, setTag] = useState([]);
 
+	console.log(tagTemp);
 	return (
 		<div
 			style={{
@@ -104,24 +104,25 @@ function MakePost() {
 					<input
 						type="text"
 						className="tags"
+						style={{ width: 300 }}
 						onChange={(e) => {
-							setTag1(e.target.value);
+							setTempTag(e.target.value);
 						}}
+						value={tagTemp}
 					/>
-					<input
-						type="text"
-						className="tags"
-						onChange={(e) => {
-							setTag2(e.target.value);
+					<button
+						onClick={() => {
+							setTag((tagsSt) => [...tagsSt, tagTemp]);
+							setTempTag('');
 						}}
-					/>
-					<input
-						type="text"
-						className="tags"
-						onChange={(e) => {
-							setTag3(e.target.value);
-						}}
-					/>
+					>
+						{' '}
+						Add tags{' '}
+					</button>
+					Tags:{' '}
+					{tagsSt.map((tag, index) => {
+						return <div key={index}> {tagsSt}</div>;
+					})}
 				</div>
 				<div className="button-bottoms">
 					<button
@@ -137,13 +138,14 @@ function MakePost() {
 					<button
 						className="button-hover"
 						onClick={(e) => {
-							object = {
+							const post = {
 								user: `placeholder`,
-								tags: ["tag1", "tag2"],
-								image: "https://via.placeholder.com/600x250",
-								title: "example name of a post number 2",
-								description: "this is an example of what a description on our post number 2 will look like",
-							  }
+								tags: tagsSt,
+								image: images,
+								title: titles,
+								description: descs,
+							};
+							console.log(post);
 							// dispatch(submitPost(titles, descs, images, tag1s, tag2s, tag3s));
 						}}
 					>
