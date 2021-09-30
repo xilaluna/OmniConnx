@@ -12,11 +12,11 @@ class UserDataService {
   create(data) {
     return http.post("/user/signup", data);
   }
-/*
+
   update(id, data) {
     return http.put(`/users/${id}`, data);
   }
-
+/*
   delete(id) {
     return http.delete(`/users/${id}`);
   }

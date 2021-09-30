@@ -3,9 +3,9 @@ import { Switch, Route, Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 
-import AddUser from "../components/add-user-component";
-import User from "../components/user-component";
-import userList from "../components/user-list";
+import AddUser from "./components/add-user-component";
+import User from "./components/user-component";
+import UserList from "./components/user-list";
 
 class App extends Component {
   render() {
@@ -18,13 +18,13 @@ class App extends Component {
           <div className="navbar-nav mr-auto">
             <li className="nav-item">
               <Link to={"/user"} className="nav-link">
-                users
+                All Users
               </Link>
             </li>
           
             <li className="nav-item">
-              <Link to={"/add"} className="nav-link">
-                User
+              <Link to={"/signup"} className="nav-link">
+                Create new User
               </Link>
             </li>
           </div>
@@ -32,8 +32,8 @@ class App extends Component {
 
         <div className="container mt-3">
           <Switch>
-            <Route exact path={["/", "/user"]} component={userList} />
-            <Route exact path="/add" component={AddUser} />
+            <Route exact path={["/", "/user"]} component={UserList} />
+            <Route exact path="/signup" component={AddUser} />
             <Route path="/user/:id" component={User} />
           </Switch>
         </div>
