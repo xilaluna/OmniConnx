@@ -2,7 +2,7 @@ import React from "react"
 // import { NavLink } from "react-router-dom"
 import { Navbar, Container, Nav } from "react-bootstrap"
 import LoginModal from "./LoginModal"
-import "./Navbar.css"
+import "./navbar.css"
 
 function NavigationBar() {
   return (
