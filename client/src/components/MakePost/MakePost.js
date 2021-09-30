@@ -137,7 +137,14 @@ function MakePost() {
 					<button
 						className="button-hover"
 						onClick={(e) => {
-							dispatch(submitPost(titles, descs, images, tag1s, tag2s, tag3s));
+							object = {
+								user: `placeholder`,
+								tags: ["tag1", "tag2"],
+								image: "https://via.placeholder.com/600x250",
+								title: "example name of a post number 2",
+								description: "this is an example of what a description on our post number 2 will look like",
+							  }
+							// dispatch(submitPost(titles, descs, images, tag1s, tag2s, tag3s));
 						}}
 					>
 						{' '}
