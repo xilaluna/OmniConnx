@@ -36,7 +36,7 @@
 
 ## How to run app
 
-In terminal: 
+In terminal:  
   `cd server`  
 `npm run dev`  
 Both backend Node server and React Front-End app will run concurrently  
