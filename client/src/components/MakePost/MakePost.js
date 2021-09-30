@@ -6,8 +6,8 @@ import './MakePost.css';
 
 import { useDispatch } from 'react-redux';
 import { submitPost } from '../../reduxcomps/actions';
+
 function MakePost() {
-	const dispatch = useDispatch();
 	const [files, setFiles] = useState([]);
 	const { getRootProps, getInputProps } = useDropzone({
 		accept: 'image/*',
@@ -32,16 +32,13 @@ function MakePost() {
 			</div>
 		</div>
 	));
-
 	// For Redux useState variables
 
 	const [titles, setTitle] = useState('');
 	const [descs, setDesc] = useState('');
-	// const [image, setImage] = useState('');
 	const [tagTemp, setTempTag] = useState('');
 	const [tagsSt, setTag] = useState([]);
 
-	console.log(tagTemp);
 	return (
 		<div
 			style={{
@@ -55,7 +52,6 @@ function MakePost() {
 			<form className="form">
 				<input
 					type="text"
-					// className="text"
 					placeholder="Title..."
 					style={{
 						width: '25vw',
@@ -116,13 +112,9 @@ function MakePost() {
 							setTempTag('');
 						}}
 					>
-						{' '}
-						Add tags{' '}
+						Add tags
 					</button>
-					Tags:{' '}
-					{tagsSt.map((tag, index) => {
-						return <div key={index}> {tagsSt}</div>;
-					})}
+					Tags: {tagsSt}
 				</div>
 				<div className="button-bottoms">
 					<button
@@ -132,8 +124,7 @@ function MakePost() {
 						className="button-hover"
 						type="submit"
 					>
-						{' '}
-						Cancel{' '}
+						Cancel
 					</button>
 					<button
 						className="button-hover"
@@ -145,12 +136,9 @@ function MakePost() {
 								title: titles,
 								description: descs,
 							};
-							console.log(post);
-							// dispatch(submitPost(titles, descs, images, tag1s, tag2s, tag3s));
 						}}
 					>
-						{' '}
-						Submit{' '}
+						Submit
 					</button>
 				</div>
 			</form>
