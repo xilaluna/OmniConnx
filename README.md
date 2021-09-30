@@ -34,16 +34,22 @@
 - Posts
 - Skills page
 
-## How to run server
+## How to run app
+
+In terminal: 
+`cd server`  
+`npm run dev`  
+Both backend Node server and React Front-End app will run concurrently  
+
+## How to run just the Node backend server
 
 In terminal:
-'''
-npm start
-'''
+`cd server`  
+`npm start`  
 
-## How to run React Front-End
+## How to run just the React Front-End
 
 In terminal:
-`cd client`
-`npm install`
+`cd client`  
+`npm install`  
 `npm start` or `yarn start`
