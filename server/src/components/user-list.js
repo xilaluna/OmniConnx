@@ -138,8 +138,10 @@ export default class UserList extends Component {
 */
     return (
       <div className="list row">
+       Search
         <div className="col-md-6">
           <h4>User List</h4>
+
           <ul className="list-group">
             {users &&
               users.map((user, index) => (
@@ -167,7 +169,7 @@ export default class UserList extends Component {
                 </label>{" "}
                 {currentUser.username}
               </div>
-              
+
               <Link
                 to={"/user/" + currentUser.id}
                 className="badge badge-warning"
@@ -178,7 +180,7 @@ export default class UserList extends Component {
           ) : (
             <div>
               <br />
-              <p>Please click on a user...</p>
+              <p>Please click on a User...</p>
             </div>
           )}
         </div>

@@ -4,7 +4,7 @@ import UserDataService from "../services/user-service";
 export default class AddUser extends Component {
   constructor(props) {
     super(props);
-    this.onChangeUsername = this.onChangeUser.bind(this);
+    this.onChangeUsername = this.onChangeUsername.bind(this);
     //this.onChangeDescription = this.onChangeDescription.bind(this);
     this.saveUser = this.saveUser.bind(this);
     this.newUser = this.newUser.bind(this);
@@ -29,6 +29,7 @@ export default class AddUser extends Component {
 
     UserDataService.create(data)
       .then(response => {
+        console.log(response.data.username)
         this.setState({
           id: response.data.id,
           username: response.data.username,
@@ -64,7 +65,7 @@ export default class AddUser extends Component {
         ) : (
           <div>
             <div className="form-group">
-              <label htmlFor="title">Username</label>
+              <label htmlFor="username">Username</label>
               <input
                 type="text"
                 className="form-control"
