@@ -3,9 +3,8 @@ import { useState } from 'react';
 import './MakePost.css';
 
 // Redux imports
-
-import { useDispatch } from 'react-redux';
-import { submitPost } from '../../reduxcomps/actions';
+// import { useDispatch } from 'react-redux';
+// import { submitPost } from '../../reduxcomps/actions';
 
 function MakePost() {
 	const [files, setFiles] = useState([]);
@@ -32,33 +31,20 @@ function MakePost() {
 			</div>
 		</div>
 	));
+	
 	// For Redux useState variables
-
 	const [titles, setTitle] = useState('');
 	const [descs, setDesc] = useState('');
 	const [tagTemp, setTempTag] = useState('');
 	const [tagsSt, setTag] = useState([]);
 
 	return (
-		<div
-			style={{
-				display: 'flex',
-				justifyContent: 'center',
-				alignItems: 'center',
-				padding: '2rem 4rem',
-			}}
-			className="main"
-		>
+		<div className="main">
 			<form className="form">
 				<input
 					type="text"
 					placeholder="Title..."
-					style={{
-						width: '25vw',
-						border: '1px #DDDDDD solid',
-						height: 25,
-						borderRadius: 6,
-					}}
+					className='titleInput'
 					onChange={(e) => {
 						setTitle(e.target.value);
 					}}
@@ -79,51 +65,38 @@ function MakePost() {
 					) : (
 						<div>
 							<p>Drop files here or </p>
-							<button
-								style={{
-									width: '5vw',
-									height: '3vh',
-									marginLeft: '4%',
-								}}
-								className="button-hover"
-							>
-								Upload
-							</button>
+							<button className="button-hover">Upload</button>
 						</div>
 					)}
 				</div>
 
-				<div
-					style={{ display: 'flex', flexDirection: 'row', marginTop: '4vh' }}
-				>
-					<h3>Tags</h3>
-					<input
-						type="text"
-						className="tags"
-						style={{ width: 300 }}
-						onChange={(e) => {
-							setTempTag(e.target.value);
-						}}
-						value={tagTemp}
-					/>
-					<button
-						onClick={() => {
+				<div className='tagSec'>
+					<div>
+						<h3>Add a Tag </h3>
+						<input
+							type="text"
+							className="tags"
+							onChange={(e) => {
+								setTempTag(e.target.value);
+							}}
+							value={tagTemp}
+						/>
+						<button className='addTagsButton' onClick={() => {
 							setTag((tagsSt) => [...tagsSt, tagTemp]);
 							setTempTag('');
-						}}
-					>
-						Add tags
-					</button>
-					Tags: {tagsSt}
+						}}>
+							Add
+						</button>
+					</div>
+					<div>
+						<h3>Tags: </h3>
+						<div className='disTag'>{tagsSt.map(tag => {
+							return(<div className='tag'>{tag}</div>)
+						})}</div>
+					</div>
 				</div>
 				<div className="button-bottoms">
-					<button
-						style={{
-							marginRight: '1vw',
-						}}
-						className="button-hover"
-						type="submit"
-					>
+					<button className="button-hover" type="submit">
 						Cancel
 					</button>
 					<button
