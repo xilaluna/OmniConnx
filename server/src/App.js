@@ -5,7 +5,7 @@ import "./App.css";
 
 import AddUser from "./components/add-user-component";
 import User from "./components/user-component";
-import userList from "./components/user-list";
+import UserList from "./components/user-list";
 
 class App extends Component {
   render() {
@@ -32,7 +32,7 @@ class App extends Component {
 
         <div className="container mt-3">
           <Switch>
-            <Route exact path={["/", "/user"]} component={userList} />
+            <Route exact path={["/", "/user"]} component={UserList} />
             <Route exact path="/signup" component={AddUser} />
             <Route path="/user/:id" component={User} />
           </Switch>
