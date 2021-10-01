@@ -116,7 +116,6 @@ export default class User extends Component {
 
             </form>
 
-         
             <p>{this.state.message}</p>
           </div>
         ) : (
