@@ -2,6 +2,9 @@ const express = require("express");
 const dotenv = require("dotenv");
 const cookieParser = require("cookie-parser");
 const cors = require("cors");
+const path = __dirname + '/views/';
+
+
 //const app = require('/index.js');
 const port = 8080;
 //"start": "concurrently \"react-scripts start\" \"cd backend && nodemon server\"",
@@ -14,10 +17,15 @@ var corsOptions = {
   origin: "http://localhost:8081"
 };
 
+app.get('/', function (req,res) {
+  res.sendFile(path + "index.html");
+})
 app.use(cors(corsOptions));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
+app.use(express.static(path));
+
 
 //database
 const db = require("./models/index");
