@@ -2,8 +2,8 @@ const express = require("express");
 const dotenv = require("dotenv");
 const cookieParser = require("cookie-parser");
 const cors = require("cors");
-//const app = require('/server/www/bin/app.js');
-const port = 5000;
+//const app = require('/index.js');
+const port = 8080;
 //"start": "concurrently \"react-scripts start\" \"cd backend && nodemon server\"",
 
 dotenv.config();
@@ -43,6 +43,14 @@ db.mongoose
 // });
 
 require("./routes/userRoutes")(app);
+//require('./src/http-common')(app);
+
+// set port, listen for requests
+const PORT = process.env.PORT || 8080;
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}.`);
+});
+
 //require("./routes/postRoutes")(app);
 // set port, listen for requests
 //

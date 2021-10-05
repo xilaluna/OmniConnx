@@ -3,27 +3,28 @@ import { Switch, Route, Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 
-import AddUser from "./components/add-tutorial.component";
-import User from "../components/user-component";
-import usersList from "./components/users-list";
+import AddUser from "./components/add-user-component";
+import User from "./components/user-component";
+import userList from "./components/user-list";
 
 class App extends Component {
   render() {
     return (
       <div>
         <nav className="navbar navbar-expand navbar-dark bg-dark">
-          <a href="/users" className="navbar-brand">
+          <a href="/user" className="navbar-brand">
             Users
           </a>
           <div className="navbar-nav mr-auto">
             <li className="nav-item">
-              <Link to={"/users"} className="nav-link">
-                users
+              <Link to={"/user"} className="nav-link">
+                All Users
               </Link>
             </li>
+          
             <li className="nav-item">
-              <Link to={"/add"} className="nav-link">
-                Add
+              <Link to={"/signup"} className="nav-link">
+                Create new User
               </Link>
             </li>
           </div>
@@ -31,9 +32,9 @@ class App extends Component {
 
         <div className="container mt-3">
           <Switch>
-            <Route exact path={["/", "/users"]} component={usersList} />
-            <Route exact path="/add" component={AddTutorial} />
-            <Route path="/users/:id" component={Tutorial} />
+            <Route exact path={["/", "/user"]} component={userList} />
+            <Route exact path="/signup" component={AddUser} />
+            <Route path="/user/:id" component={User} />
           </Switch>
         </div>
       </div>

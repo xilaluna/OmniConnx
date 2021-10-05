@@ -7,13 +7,12 @@ export default class User extends Component {
     //this.onChangeUsername = this.onChangeUsername.bind(this);
     this.onChangeUsername = this.onChangeUsername.bind(this);
     this.getUser = this.getUser.bind(this);
-    //this.updateUser = this.updateUser.bind(this);
+    this.updateUser = this.updateUser.bind(this);
     //this.deleteUser = this.deleteUser.bind(this);
 
     this.state = {
       currentUser: {
         id: null,
-        //username: "",
         username: "",
       },
       message: ""
@@ -49,8 +48,6 @@ export default class User extends Component {
         console.log(e);
       });
   }
-  
-/*
   updateUser() {
     UserDataService.update(
       this.state.currentUser.id,
@@ -66,6 +63,9 @@ export default class User extends Component {
         console.log(e);
       });
   }
+
+  
+/*
 
   deleteTutorial() {    
     UserDataService.delete(this.state.currentUser.id)
@@ -104,12 +104,12 @@ export default class User extends Component {
             <h4>User</h4>
             <form>
               <div className="form-group">
-                <label htmlFor="first_name">First Name</label>
+                <label htmlFor="username">Username</label>
                 <input
                   type="text"
                   className="form-control"
-                  id="first_name"
-                  value={currentUser.first_name}
+                  id="username"
+                  value={currentUser.username}
                   onChange={this.onChangeUsername}
                 />
               </div>
