@@ -6,6 +6,20 @@ const User = db.users;
 
 dotenv.config();
 
+exports.create = async (req, res) => {
+  try{
+    const { username } = req.body;
+    const newUser = new User({
+      username
+    });
+    const user = await newUser.save();
+    res.json(user);
+  } catch(err){
+    console.error(err);
+    res.status(500).send();
+  }
+};
+
 // Register
 // exports.signup = async (req, res) => {
 
@@ -71,68 +85,53 @@ dotenv.config();
 // };
 
 // log in a user
-// exports.login = async (req, res) => {
-//   try {
-//     const { username, password } = req.body;
-//     //validate 
-//     if (!username || !password)
-//     return res
-//       .status(400)
-//       .json({ errorMessage: "Please enter all required fields." })
+exports.login = async (req, res) => {
+  try {
+    const { username, password } = req.body;
+    //validate 
+    if (!username || !password)
+    return res
+      .status(400)
+      .json({ errorMessage: "Please enter all required fields." })
     
-//     const existingUser = await User.findOne({ username });
-//     if (!existingUser)
-//       return res
-//         .status(401)
-//         .json({ errorMessage: "Wrong username or password" });
-//     const passwordCorrect = await bcrypt.compare(
-//       password,
-//       existingUser.passwordHash
-//     );
-//     if (!passwordCorrect)
-//       return res
-//         .status(401)
-//         .json({ errorMessage: "Wrong username or password" });
+    const existingUser = await User.findOne({ username });
+    if (!existingUser)
+      return res
+        .status(401)
+        .json({ errorMessage: "Wrong username or password" });
+    const passwordCorrect = await bcrypt.compare(
+      password,
+      existingUser.passwordHash
+    );
+    if (!passwordCorrect)
+      return res
+        .status(401)
+        .json({ errorMessage: "Wrong username or password" });
 
-//     //sign the token
-//     const token = jwt.sign(
-//       {
-//         user: existingUser._id,
-//       },
-//       process.env.JWT_SECRET
-//     );
-//     // send the token in a HTTP-only cookie
-//     res.cookie("token", token, {
-//       httpOnly: true,
-//     }).send();
-//   } catch (err) {
-//     console.error(err);
-//     res.status(500).send();
-//   }
-// };
-
-// exports.logout = (req, res) => {
-//   res
-//     .cookie("token", "", {
-//       httpOnly: true,
-//       expires: new Date(0),
-//     })
-//     .send();
-// };
-
-
-exports.create = async (req, res) => {
-  try{
-    const { username } = req.body;
-    const newUser = new User({
-      username
-    });
-    const user = await newUser.save();
-    res.json(user);
-  } catch(err){
+    //sign the token
+    const token = jwt.sign(
+      {
+        user: existingUser._id,
+      },
+      process.env.JWT_SECRET
+    );
+    // send the token in a HTTP-only cookie
+    res.cookie("token", token, {
+      httpOnly: true,
+    }).send();
+  } catch (err) {
     console.error(err);
     res.status(500).send();
   }
+};
+// signs out the user
+exports.logout = (req, res) => {
+  res
+    .cookie("token", "", {
+      httpOnly: true,
+      expires: new Date(0),
+    })
+    .send();
 };
 
 //FOR TESTING PURPOSES

@@ -50,7 +50,7 @@ db.mongoose
 //       console.log(err);
 //   }
 // });
-
+require("./routes/postRoutes")(app);
 require("./routes/userRoutes")(app);
 //require('./src/http-common')(app);
 
@@ -59,7 +59,3 @@ const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}.`);
 });
-
-//require("./routes/postRoutes")(app);
-// set port, listen for requests
-//
