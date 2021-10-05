@@ -3,72 +3,74 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const dotenv = require('dotenv');
 const User = db.users;
+const bodyparser = require("body-parser");
 
 dotenv.config();
 
 // Register
+
+// exports.signup = async (req, res) => {
+
+//   try {
+//     const { username, password, passwordVerify } = req.body;
+
+//     // if (!username || !password || !passwordVerify)
+//     //   return res
+//     //     .status(400)
+//     //     .json({ errorMessage: "Please enter all required fields." })
+
+//     // if (password.length < 6)
+//     //   return res
+//     //     .status(400)
+//     //     .json({ errorMessage: "Password must be at least 6 characters long." })
+
+//     // if (password !== passwordVerify)
+//     //   return res.status(400).json({
+//     //     errorMessage: "Passwords do not match."
+//     //   });
+    
+//     // const existingUser = await User.findOne({ username });
+    
+//     // if (existingUser)
+//     //   return res
+//     //     .status(400)
+//     //     .json({ errorMessage: "Username already exists." });
+
+//     // // hash the password
+//     // const salt = await bcrypt.genSalt();
+//     // const passwordHash = await bcrypt.hash(password, salt);
+
+//     // save a new user account to the database
+    
+//     const newUser = new User({
+//       username,
+//       // passwordHash
+//     });
+
+//     const savedUser = await newUser.save();
+
+//     //sign the token
+
+//     // const token = jwt.sign(
+//     //   {
+//     //     user: savedUser._id,
+//     //   },
+//     //   process.env.JWT_SECRET
+//     // );
+
+//     // send the token in a HTTP-only cookie
+//     // res.cookie("token", token, {
+//     //   httpOnly: true,
+//     // }).send();
+
+//   } catch (err) {
+//     console.error(err);
+//     res.status(500).send();
+//   }
+    
+// };
+
 /*
-exports.signup = async (req, res) => {
-
-  try {
-    const { username, password, passwordVerify } = req.body;
-
-    if (!username || !password || !passwordVerify)
-      return res
-        .status(400)
-        .json({ errorMessage: "Please enter all required fields." })
-
-    if (password.length < 6)
-      return res
-        .status(400)
-        .json({ errorMessage: "Password must be at least 6 characters long." })
-
-    if (password !== passwordVerify)
-      return res.status(400).json({
-        errorMessage: "Passwords do not match."
-      });
-    
-    const existingUser = await User.findOne({ username });
-    
-    if (existingUser)
-      return res
-        .status(400)
-        .json({ errorMessage: "Username already exists." });
-
-    // hash the password
-    const salt = await bcrypt.genSalt();
-    const passwordHash = await bcrypt.hash(password, salt);
-
-    // save a new user account to the database
-    
-    const newUser = new User({
-      username,
-      passwordHash
-    });
-
-    const savedUser = await newUser.save();
-
-    //sign the token
-
-    const token = jwt.sign(
-      {
-        user: savedUser._id,
-      },
-      process.env.JWT_SECRET
-    );
-
-    // send the token in a HTTP-only cookie
-    res.cookie("token", token, {
-      httpOnly: true,
-    }).send();
-
-  } catch (err) {
-    console.error(err);
-    res.status(500).send();
-  }
-    
-};
-
 // log in a user
 exports.login = async (req, res) => {
   try {
@@ -121,6 +123,7 @@ exports.logout = (req, res) => {
 */
 
 exports.create = async (req, res) => {
+  console.log("/signup req: " + req.body)
   try{
     const { username} = req.body;
 
