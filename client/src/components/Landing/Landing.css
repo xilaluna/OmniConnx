@@ -1,4 +1,180 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@300;400&family=Open+Sans:wght@300;400&family=Oswald:wght@400;500&display=swap");
+.landing {
+  font-family: 'Nunito', sans-serif;
+  /* Animation */
+  /*Shrinking for mobile*/
+}
+
 .landing .hero {
+  padding: 80px 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.landing .hero img {
+  border-radius: 10px;
+}
+
+.landing .hero div .logo1 {
+  width: 90%;
+}
+
+.landing .hero div h1 {
+  font-family: 'Oswald', sans-serif;
+  font-size: 72px;
+  color: #9D99E6;
+}
+
+.landing .hero div h2 {
+  font-size: 64px;
+  color: #76C9BF;
+  margin: 1rem;
+  padding-bottom: 1rem;
+}
+
+.landing .hero div p {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 28px;
+  color: #3C5487;
+}
+
+.landing .hero div button {
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  padding: 10px 30px;
+  border: none;
+  border-radius: 20px;
+  background-image: -webkit-gradient(linear, left top, right top, from(#3A31E0), to(#9D99E6));
+  background-image: linear-gradient(to right, #3A31E0, #9D99E6);
+  color: white;
+  font-size: 24px;
+}
+
+.landing .hero .landing1 {
+  width: 50%;
+  padding: 0 4rem 0 0;
+}
+
+.landing .hero .skills {
+  width: 30%;
+}
+
+.landing .waves {
+  position: relative;
+  width: 100%;
+  height: 18vh;
+  margin-bottom: -7px;
+  /*Fix for safari gap*/
+  min-height: 100px;
+  max-height: 150px;
+}
+
+.landing .parallax > use {
+  -webkit-animation: move-forever 25s cubic-bezier(0.55, 0.5, 0.45, 0.5) infinite;
+          animation: move-forever 25s cubic-bezier(0.55, 0.5, 0.45, 0.5) infinite;
+}
+
+.landing .parallax > use:nth-child(1) {
+  -webkit-animation-delay: -2s;
+          animation-delay: -2s;
+  -webkit-animation-duration: 7s;
+          animation-duration: 7s;
+}
+
+.landing .parallax > use:nth-child(2) {
+  -webkit-animation-delay: -3s;
+          animation-delay: -3s;
+  -webkit-animation-duration: 10s;
+          animation-duration: 10s;
+}
+
+.landing .parallax > use:nth-child(3) {
+  -webkit-animation-delay: -4s;
+          animation-delay: -4s;
+  -webkit-animation-duration: 13s;
+          animation-duration: 13s;
+}
+
+.landing .parallax > use:nth-child(4) {
+  -webkit-animation-delay: -5s;
+          animation-delay: -5s;
+  -webkit-animation-duration: 20s;
+          animation-duration: 20s;
+}
+
+@-webkit-keyframes move-forever {
+  0% {
+    -webkit-transform: translate3d(-90px, 0, 0);
+            transform: translate3d(-90px, 0, 0);
+  }
+  100% {
+    -webkit-transform: translate3d(85px, 0, 0);
+            transform: translate3d(85px, 0, 0);
+  }
+}
+
+@keyframes move-forever {
+  0% {
+    -webkit-transform: translate3d(-90px, 0, 0);
+            transform: translate3d(-90px, 0, 0);
+  }
+  100% {
+    -webkit-transform: translate3d(85px, 0, 0);
+            transform: translate3d(85px, 0, 0);
+  }
+}
+
+@media (max-width: 768px) {
+  .landing .waves {
+    height: 40px;
+    min-height: 40px;
+  }
+  .landing h1 {
+    font-size: 24px;
+  }
+}
+
+.landing .hero2 {
+  padding: 80px 0;
+}
+
+.landing .hero2 h1 {
+  font-family: 'Oswald', sans-serif;
+  font-size: 48px;
+  color: #76C9BF;
+  padding: 2rem;
+}
+
+.landing .hero2 p {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 24px;
+  color: #3C5487;
+  padding-bottom: 2rem;
+}
+
+.landing .hero2 button {
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  padding: 10px 30px;
+  border: none;
+  border-radius: 20px;
+  background-image: -webkit-gradient(linear, left top, right top, from(#3A31E0), to(#9D99E6));
+  background-image: linear-gradient(to right, #3A31E0, #9D99E6);
+  color: white;
+  font-size: 24px;
+}
+
+.landing .hero2 .blurbs {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -12,46 +188,11 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-}
-
-.landing .hero img {
-  border-radius: 10px;
-}
-
-.landing .hero div {
-  margin: 0 3rem;
-}
-
-.landing .hero div p {
-  opacity: 0.7;
-}
-
-.landing .hero div button {
-  padding: 0.5rem 1rem;
-  background-color: black;
-  color: white;
-  border: none;
-  border-radius: 10px;
-}
-
-.landing .blurbs,
-.landing .cards {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
 }
 
-.landing .blurbs > *,
-.landing .cards > * {
+.landing .hero2 .blurbs > * {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -62,25 +203,20 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  margin: 2rem;
-  padding: 3rem;
 }
 
-.landing .blurbs > * > *,
-.landing .cards > * > * {
+.landing .hero2 .blurbs > * > * {
   margin: 0.5rem;
 }
 
-.landing .blurbs > * img,
-.landing .cards > * img {
-  height: auto;
-  width: 100px;
-  border-radius: 50%;
+.landing .hero2 .blurbs > * h2 {
+  font-size: 36px;
+  color: #3C5487;
+  margin: 1rem;
+  padding-bottom: 2rem;
 }
 
-.landing .blurbs > .card,
-.landing .cards > .card {
-  border: 2px solid lightgray;
-  border-radius: 10px;
+.landing .hero2 .blurbs > * img {
+  width: 70%;
 }
 /*# sourceMappingURL=Landing.css.map */

@@ -20,7 +20,7 @@ function LoginModal() {
 
 	return (
 		<>
-			<Nav.Link onClick={handleShow}>Login</Nav.Link>
+			<Nav.Link className="nav-item" onClick={handleShow}>Login</Nav.Link>
 
 			<Modal
 				show={show}

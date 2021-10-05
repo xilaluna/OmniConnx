@@ -3,6 +3,7 @@ import React from "react"
 import { Navbar, Container, Nav } from "react-bootstrap"
 import LoginModal from "./LoginModal"
 import "./navbar.css"
+import Logo from '../../static/images/logo.png'
 
 function NavigationBar() {
   return (
@@ -15,17 +16,28 @@ function NavigationBar() {
     //     <NavLink to="/posts">Posts</NavLink>
     //   </div>
     // </div>
-    <Navbar bg="dark" expand="lg" variant="dark" className="navbar">
+    <Navbar expand="lg" variant="light" className="navbar">
       <Container>
-        <Navbar.Brand href="#">OmniConnx</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
+          {/* Logo Section */}
           <Nav className="me-auto">
-            <Nav.Link href="#prof">profileTest</Nav.Link>
-            <Nav.Link href="#posts">Posts</Nav.Link>
+            <Navbar.Brand href="#">
+              <img
+                src={Logo}
+                width="30"
+                height="30"
+                className="d-inline-block align-top"
+                alt="OmniConnx Logo"
+              />
+            </Navbar.Brand>
           </Nav>
+           
+           {/* Links Section */}
           <Nav>
-            <LoginModal />
+            <Nav.Link className="nav-item" href="#posts">Posts</Nav.Link>
+            <Nav.Link className="nav-item" href="#prof">Profile</Nav.Link>
+            <LoginModal/>
           </Nav>
         </Navbar.Collapse>
       </Container>
