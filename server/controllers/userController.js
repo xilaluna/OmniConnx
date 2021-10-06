@@ -129,6 +129,7 @@ exports.create = async (req, res) => {
     });
     
     const user = await newUser.save();
+    console.log("Saved user")
 
     res.json(user);
   } catch(err){
