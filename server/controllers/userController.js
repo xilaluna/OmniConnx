@@ -149,6 +149,7 @@ exports.findAll = (req, res) => {
 
   User.find(condition)
     .then(data => {
+      console.log(data)
       res.send(data);
     })
     .catch(err => {
