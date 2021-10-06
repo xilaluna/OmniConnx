@@ -2,6 +2,9 @@ import React from 'react'
 import './userProfile.css'
 
 function UserProfile() {
+  fetch('/user/signup')
+  .then(response => response.json())
+  .then(data => console.log(data));
   
   return (
     <div className='userProfile'>
