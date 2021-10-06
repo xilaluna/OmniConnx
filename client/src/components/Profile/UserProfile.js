@@ -2,6 +2,7 @@ import React from 'react'
 import './userProfile.css'
 
 function UserProfile() {
+  
   return (
     <div className='userProfile'>
       {/* Main User Area */}
