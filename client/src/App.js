@@ -8,6 +8,9 @@ import Posts from "./components/posts"
 import MakePost from "./components/MakePost"
 import "bootstrap/dist/css/bootstrap.min.css"
 
+import AddUser from "./components/add-user-component";
+import User from "./components/user-component";
+import UserList from "./components/user-list";
 // Redux
 import { createStore } from "redux"
 import { Provider } from "react-redux"
@@ -46,10 +49,15 @@ function App() {
   return (
     <Provider store={store}>
       <Router>
+        <div>
+          
+        </div>
         <div className="App">
           <NavigationBar />
           <Switch>
-            <Route exact path="/" component={Landing} />
+            {/* <Route exact path={["/", "/user"]} component={UserList} /> */}
+            {/* <Route exact path="/signup" component={AddUser} /> */}
+            <Route exact path="/ " component={Landing} />
             <Route path="/prof" component={UserProfile} />
             <Route path="/posts" component={Posts} />
             <Route path="/makepost" component={MakePost} />
