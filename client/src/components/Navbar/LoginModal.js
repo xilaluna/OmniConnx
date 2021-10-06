@@ -1,5 +1,10 @@
 import React, { useState } from "react"
 import { Modal, Button, Nav, Form } from "react-bootstrap"
+import AddUser from "../add-user-component";
+import User from "../user-component";
+import UserList from "../user-list";
+import { HashRouter as Router, Route, Switch, Link, useHistory } from "react-router-dom"
+
 
 function LoginModal() {
   const [show, setShow] = useState(false)
@@ -8,13 +13,22 @@ function LoginModal() {
   const handleClose = () => setShow(false)
   return (
     <>
-      <Nav.Link onClick={handleShow}>Login</Nav.Link>
+      <Nav.Link onClick={handleShow} >Login</Nav.Link>
 
       <Modal show={show} onHide={handleClose} backdrop="static" keyboard={false}>
         <Modal.Header closeButton>
           <Modal.Title>Log In</Modal.Title>
         </Modal.Header>
-        <Form>
+        <Switch>
+           {/* Post request */}
+        <Route exact path="/signup" component={AddUser} />
+            {/* Get request */}
+        <Route to={"/signup"} component={AddUser} />
+
+        </Switch>
+
+    
+        {/* <Form>
           <Modal.Body>
             <Form.Group className="mb-3" controlId="formBasicEmail">
               <Form.Label>Email address</Form.Label>
@@ -40,7 +54,7 @@ function LoginModal() {
               Submit
             </Button>
           </Modal.Footer>
-        </Form>
+        </Form> */}
       </Modal>
     </>
   )

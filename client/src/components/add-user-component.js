@@ -99,13 +99,18 @@ export default class AddUser extends Component {
               </Form.Text>
             </Form.Group>
 
-            <Form.Group className="mb-3" controlId="formBasicPassword">
+            {/* <Form.Group className="mb-3" controlId="formBasicPassword">
               <Form.Label>Password</Form.Label>
               <Form.Control type="password" placeholder="Password" />
             </Form.Group>
             <Form.Group className="mb-3" controlId="formBasicCheckbox">
               <Form.Check type="checkbox" label="remember me" />
-            </Form.Group>
+                    const history = useHistory();
+
+          const handleClick = () => {
+              history.push("/path/to/push");
+          }
+            </Form.Group> */}
           </Modal.Body>
           <Modal.Footer>
             <Button variant="primary" type="submit" onClick={this.saveUser} className="btn btn-success">
