@@ -41,6 +41,7 @@ function MakePost() {
 	return (
 		<div className="main">
 			<form className="form">
+				<h1 className="title">Create a post</h1>
 				<input
 					type="text"
 					placeholder="Title..."
