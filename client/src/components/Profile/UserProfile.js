@@ -2,16 +2,22 @@ import React from 'react'
 import './userProfile.css'
 
 function UserProfile() {
-  fetch('http://localhost:8080/user/')
-  .then(response => response.json())
-  .then(data => console.log(data));
+  function httpGet(theUrl) {
+    let xmlHttpReq = new XMLHttpRequest();
+    xmlHttpReq.open("GET", theUrl, false); 
+    xmlHttpReq.send(null);
+    return JSON.parse(xmlHttpReq.responseText);
+  }
+  const data = httpGet('http://localhost:8080/user/');
+  const latestUser = data[data.length - 1]
+  console.log(latestUser)
   return (
     <div className='userProfile'>
       {/* Main User Area */}
       <div className="profmain">
       <img src="https://via.placeholder.com/200"></img>
         <div>
-          <h1>Username</h1>
+          <h1>{latestUser["username"]}</h1>
           <div className="profinfo">
             <h4>Degree</h4>
             <h4>Gender</h4>
