@@ -68,7 +68,7 @@ function UserProfile() {
           </div>
         </div>
         
-        {/* Posts Cards */}
+        {/* DO NOT UNCOMMENT THIS */}
         {/* <div className="cards">
           <div className="card">
             <img src="https://via.placeholder.com/100"></img>
