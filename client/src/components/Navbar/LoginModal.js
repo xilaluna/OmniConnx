@@ -21,7 +21,7 @@ function LoginModal() {
         </Modal.Header>
         <Switch>
 
-          <Route exact path="/signup" component={AddUser} />
+          <Route to="/signup" component={AddUser} />
 
         </Switch>
 

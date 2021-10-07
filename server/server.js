@@ -8,7 +8,9 @@ const port = 8080;
 
 dotenv.config();
 
+const path = __dirname + '/server/views/';
 const app = express();
+
 
 var corsOptions = {
   origin: "http://localhost:8081"
@@ -18,6 +20,8 @@ app.use(cors(corsOptions));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
+app.use(express.static(path));
+
 
 //database
 const db = require("./models/index");
