@@ -3,7 +3,6 @@ const dotenv = require("dotenv")
 const cookieParser = require("cookie-parser")
 const cors = require("cors")
 //const app = require('/index.js');
-const port = 8080
 //"start": "concurrently \"react-scripts start\" \"cd backend && nodemon server\"",
 
 dotenv.config()
@@ -22,7 +21,7 @@ app.use(cookieParser())
 //database
 const db = require("./models/index")
 db.mongoose
-  .connect(db.url, {
+  .connect(process.env.MONGODB_CONNECTION_STRING || db.url, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
