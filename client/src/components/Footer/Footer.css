@@ -1,1 +1,8 @@
-/* No CSS */
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@300;400&family=Open+Sans:wght@300;400&family=Oswald:wght@400;500&display=swap");
+.footer {
+  font-family: 'Nunito', sans-serif;
+  background-color: #D4ECEF;
+  padding: 2rem;
+  color: #3C5487;
+}
+/*# sourceMappingURL=Footer.css.map */

@@ -3,11 +3,10 @@ import { useState } from 'react';
 import './MakePost.css';
 
 // Redux imports
+// import { useDispatch } from 'react-redux';
+// import { submitPost } from '../../reduxcomps/actions';
 
-import { useDispatch } from 'react-redux';
-import { submitPost } from '../../reduxcomps/actions';
 function MakePost() {
-	const dispatch = useDispatch();
 	const [files, setFiles] = useState([]);
 	const { getRootProps, getInputProps } = useDropzone({
 		accept: 'image/*',
@@ -34,35 +33,19 @@ function MakePost() {
 	));
 
 	// For Redux useState variables
-
 	const [titles, setTitle] = useState('');
 	const [descs, setDesc] = useState('');
-	// const [image, setImage] = useState('');
-	const [tag1s, setTag1] = useState('');
-	const [tag2s, setTag2] = useState('');
-	const [tag3s, setTag3] = useState('');
+	const [tagTemp, setTempTag] = useState('');
+	const [tagsSt, setTag] = useState([]);
 
 	return (
-		<div
-			style={{
-				display: 'flex',
-				justifyContent: 'center',
-				alignItems: 'center',
-				padding: '2rem 4rem',
-			}}
-			className="main"
-		>
+		<div className="main">
 			<form className="form">
+				<h1 className="title">Create a post</h1>
 				<input
 					type="text"
-					// className="text"
 					placeholder="Title..."
-					style={{
-						width: '25vw',
-						border: '1px #DDDDDD solid',
-						height: 25,
-						borderRadius: 6,
-					}}
+					className="titleInput"
 					onChange={(e) => {
 						setTitle(e.target.value);
 					}}
@@ -83,65 +66,60 @@ function MakePost() {
 					) : (
 						<div>
 							<p>Drop files here or </p>
-							<button
-								style={{
-									width: '5vw',
-									height: '3vh',
-									marginLeft: '4%',
-								}}
-								className="button-hover"
-							>
-								Upload
-							</button>
+							<button className="button-hover">Upload</button>
 						</div>
 					)}
 				</div>
 
-				<div
-					style={{ display: 'flex', flexDirection: 'row', marginTop: '4vh' }}
-				>
-					<h3>Tags</h3>
-					<input
-						type="text"
-						className="tags"
-						onChange={(e) => {
-							setTag1(e.target.value);
-						}}
-					/>
-					<input
-						type="text"
-						className="tags"
-						onChange={(e) => {
-							setTag2(e.target.value);
-						}}
-					/>
-					<input
-						type="text"
-						className="tags"
-						onChange={(e) => {
-							setTag3(e.target.value);
-						}}
-					/>
+				<div className="tagSec">
+					<div>
+						<h3>Add a Tag </h3>
+						<input
+							type="text"
+							className="tags"
+							onChange={(e) => {
+								setTempTag(e.target.value);
+							}}
+							value={tagTemp}
+						/>
+						<button
+							className="addTagsButton"
+							onClick={() => {
+								if (tagsSt.length < 10) {
+									setTag((tagsSt) => [...tagsSt, tagTemp]);
+									setTempTag('');
+								}
+							}}
+						>
+							Add
+						</button>
+					</div>
+					<div>
+						<h3>Tags: </h3>
+						<div className="disTag">
+							{tagsSt.map((tag) => {
+								return <div className="tag">{tag}</div>;
+							})}
+						</div>
+					</div>
 				</div>
 				<div className="button-bottoms">
-					<button
-						style={{
-							marginRight: '1vw',
-						}}
-						className="button-hover"
-						type="submit"
-					>
-						{' '}
-						Cancel{' '}
+					<button className="button-hover" type="submit">
+						Cancel
 					</button>
 					<button
 						className="button-hover"
 						onClick={(e) => {
-							dispatch(submitPost(titles, descs, images, tag1s, tag2s, tag3s));
+							const post = {
+								user: `placeholder`,
+								tags: tagsSt,
+								image: images,
+								title: titles,
+								description: descs,
+							};
 						}}
 					>
-						{' '}
-						Submit{' '}
+						Submit
 					</button>
 				</div>
 			</form>

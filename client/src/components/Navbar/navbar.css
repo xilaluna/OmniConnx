@@ -1,3 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400&family=Open+Sans:wght@300;400&family=Oswald:wght@400;500&display=swap');
+/* font-family: 'Nunito', sans-serif;
+font-family: 'Open Sans', sans-serif;
+font-family: 'Oswald', sans-serif; */
+
 .navbar {
+  background-color: #D4ECEF;
   margin-bottom: 1rem;
+}
+
+.nav-item {
+  font-family: 'Nunito', sans-serif;
+  color:#3C5487 ;
 }

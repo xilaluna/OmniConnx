@@ -1,0 +1,251 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@300;400&family=Open+Sans:wght@300;400&family=Oswald:wght@400;500&display=swap");
+.userProfile {
+  margin: 3rem;
+  font-family: 'Nunito', sans-serif;
+}
+
+.userProfile .prof {
+  font-family: 'Oswald', sans-serif;
+  color: #00A3CF;
+  padding: 1rem;
+}
+
+.userProfile .prof h1 {
+  font-size: 64px;
+}
+
+.userProfile button {
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  padding: 10px 30px;
+  border: none;
+  border-radius: 20px;
+  background-image: -webkit-gradient(linear, left top, right top, from(#3A31E0), to(#9D99E6));
+  background-image: linear-gradient(to right, #3A31E0, #9D99E6);
+  color: white;
+  font-size: 24px;
+}
+
+.userProfile .createPost {
+  color: white;
+  text-decoration: none;
+}
+
+.userProfile .profmain {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 0 5rem;
+}
+
+.userProfile .profmain .usericon {
+  width: 20%;
+}
+
+.userProfile .profmain .profinfo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
+.userProfile .profmain .skill {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 0 0 0 3rem;
+}
+
+.userProfile .profmain .skill .skillcard {
+  border-radius: 20px;
+  background-color: #EAD2FF;
+  color: #3C5487;
+  margin: 3rem;
+  padding: 3rem;
+  width: 100%;
+}
+
+.userProfile .profmain .stat {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.userProfile .profmain .stat .statcard {
+  border-radius: 20px;
+  background-color: #76C9BF;
+  color: #3C5487;
+  padding: 3rem;
+  width: 100%;
+}
+
+.userProfile .bio {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 0 7rem;
+}
+
+.userProfile .bio .biocard {
+  border: #76C9BF solid 2px;
+  border-radius: 20px;
+  color: gray;
+  padding: 4rem;
+  width: 100%;
+}
+
+.userProfile .userposts {
+  padding: 5rem 7rem;
+}
+
+.userProfile .userposts .postinfo .yourpost {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-family: 'Oswald', sans-serif;
+  color: #00A3CF;
+}
+
+.userProfile .userposts .postinfo .newpost {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.userProfile .userposts .noposts {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 0 7rem;
+}
+
+.userProfile .userposts .noposts .nopostscard {
+  color: gray;
+  padding: 4rem;
+  width: 100%;
+}
+
+.userProfile .userposts .cards {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.userProfile .userposts .cards > * {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 2rem;
+  padding: 3rem;
+}
+
+.userProfile .userposts .cards > * > * {
+  margin: 0.5rem;
+}
+
+.userProfile .userposts .cards > * img {
+  height: auto;
+  width: 100px;
+  border-radius: 50%;
+}
+
+.userProfile .userposts .cards > .card {
+  border: 2px solid lightgray;
+  border-radius: 10px;
+}
+/*# sourceMappingURL=UserProfile.css.map */

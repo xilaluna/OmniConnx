@@ -129,6 +129,7 @@ exports.create = async (req, res) => {
     });
     
     const user = await newUser.save();
+    console.log("Saved user")
 
     res.json(user);
   } catch(err){
@@ -148,6 +149,7 @@ exports.findAll = (req, res) => {
 
   User.find(condition)
     .then(data => {
+      console.log(data)
       res.send(data);
     })
     .catch(err => {
