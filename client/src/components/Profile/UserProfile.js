@@ -1,5 +1,6 @@
 import React from 'react'
 import './userProfile.css'
+import Usericon from '../../static/images/usericon.png'
 
 function UserProfile() {
   // function httpGet(theUrl) {
@@ -13,38 +14,72 @@ function UserProfile() {
   // console.log(latestUser)
   return (
     <div className='userProfile'>
+      <div className="prof">
+        <h1>Profile</h1>
+      </div>
       {/* Main User Area */}
       <div className="profmain">
-      <img src="https://via.placeholder.com/200"></img>
-        <div>
-          <h1>Username</h1> {/* {latestUser["username"]} */}
-          <div className="profinfo">
-            <h4>Degree</h4>
-            <h4>Gender</h4>
-            <h4>Other Stuff</h4>
+        <img className="usericon" src={Usericon}/>
+        {/* Profile Info */}
+        <div className="profinfo">
+          <h5>Username</h5> {/* {latestUser["username"]} */}
+          <h5>Degree</h5>
+          <h5>Gender</h5>
+          <h5>Other</h5>
+        </div>
+
+        {/* Skills feature */}
+        <div className="skill">
+          <div className="skillcard">
+            <p>Skills Feature coming soon!</p>
+          </div>
+        </div>
+
+        <div className="stat">
+          <div className="statcard">
+            <p>User statistics under development</p>
           </div>
         </div>
       </div>
+
       {/* Bio Area */}
       <div className="bio">
         <div className="biocard">
           <p>Bio Area</p>
         </div>
       </div>
-      {/* Skills? Area */}
-      <div className="cards">
-        <div className="card">
-          <img src="https://via.placeholder.com/100"></img>
-          <p>description</p>
+
+      {/* Posts Area */}
+      <div className="userposts">
+        <div className="postinfo">
+          <div className="yourpost">
+            <h1>Your Posts</h1>
+          </div>
+          <div className="newpost">
+            <button>+ Post</button>
+          </div>
         </div>
-        <div className="card">
-          <img src="https://via.placeholder.com/100"></img>
-          <p>description</p>
+        <div className="noposts">
+          <div className="nopostscard">
+            <p>Create your first post!</p>
+          </div>
         </div>
-        <div className="card">
-          <img src="https://via.placeholder.com/100"></img>
-          <p>description</p>
-        </div>
+        
+        {/* Posts Cards */}
+        {/* <div className="cards">
+          <div className="card">
+            <img src="https://via.placeholder.com/100"></img>
+            <p>description</p>
+          </div>
+          <div className="card">
+            <img src="https://via.placeholder.com/100"></img>
+            <p>description</p>
+          </div>
+          <div className="card">
+            <img src="https://via.placeholder.com/100"></img>
+            <p>description</p>
+          </div>
+        </div> */}
       </div>
 
     </div>
