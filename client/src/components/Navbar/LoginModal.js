@@ -13,7 +13,7 @@ function LoginModal() {
   const handleClose = () => setShow(false)
   return (
     <>
-      <Nav.Link onClick={handleShow} >Login</Nav.Link>
+      <Nav.Link className="nav-item" onClick={handleShow} >Login</Nav.Link>
 
       <Modal show={show} onHide={handleClose} backdrop="static" keyboard={false}>
         <Modal.Header closeButton>
