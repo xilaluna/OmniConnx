@@ -8,7 +8,7 @@ const port = 8080;
 
 dotenv.config();
 
-const path = __dirname + '/server/views/';
+const path = __dirname + '/views/';
 const app = express();
 
 
@@ -38,13 +38,10 @@ db.mongoose
     process.exit();
   });
 
-// app.post("/user", (req, res) => {
-//   try{
-//       const { first_name } = req.body;
-//   } catch (err) {
-//       console.log(err);
-//   }
-// });
+
+  app.get('/', function (req,res) {
+    res.sendFile(path + "index.html");
+  });
 
 require("./routes/userRoutes")(app);
 //require('./src/http-common')(app);

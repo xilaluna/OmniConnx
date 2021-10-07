@@ -19,11 +19,11 @@ function UserProfile() {
         <div>
           {/* <h1>{latestUser["username"]}</h1> */}
           <div className="profinfo">
+          <h4>{latestUser["username"]}</h4>
             <h4>Degree</h4>
             <h4>Gender</h4>
             <h4>Other Stuff</h4>
           </div>
-          <h5>{latestUser["username"]}</h5>
         </div>
       </div>
       {/* Bio Area */}
