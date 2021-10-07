@@ -1,4 +1,5 @@
 import React from 'react'
+import { NavLink } from "react-router-dom"
 import './userProfile.css'
 import Usericon from '../../static/images/usericon.png'
 
@@ -56,7 +57,9 @@ function UserProfile() {
             <h1>Your Posts</h1>
           </div>
           <div className="newpost">
-            <button>+ Post</button>
+          <button>
+            <NavLink className="createPost" to="/makepost"> + Post</NavLink>
+          </button>
           </div>
         </div>
         <div className="noposts">

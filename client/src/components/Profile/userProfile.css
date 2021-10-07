@@ -26,6 +26,11 @@
   font-size: 24px;
 }
 
+.userProfile .createPost {
+  color: white;
+  text-decoration: none;
+}
+
 .userProfile .profmain {
   display: -webkit-box;
   display: -ms-flexbox;
