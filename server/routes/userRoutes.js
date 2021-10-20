@@ -1,4 +1,5 @@
 module.exports = app => {
+  const { verifySignUp } = require("../middleware")
   const users = require("../controllers/userController.js");
   var router = require("express").Router();
   
