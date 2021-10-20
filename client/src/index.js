@@ -13,7 +13,7 @@ ReactDOM.render(
   </BrowserRouter>,
   document.getElementById('root')
 );
-//serviceWorker.unregister();
+serviceWorker.unregister();
 
 
 // If you want to start measuring performance in your app, pass a function
