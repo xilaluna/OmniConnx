@@ -1,5 +1,7 @@
 import "./App.css"
-import { HashRouter as Router, Route, Switch } from "react-router-dom"
+import { BrowserRouter, BrowserRouter as Router, Route, Switch} from "react-router-dom"
+//import { Switch, Route, Router } from "react-router-dom";
+
 import NavigationBar from "./components/Navbar/NavigationBar"
 import Footer from "./components/Footer/Footer"
 import Landing from "./components/Landing/Landing"
@@ -45,18 +47,16 @@ store.subscribe(() => {
 function App() {
   return (
     <Provider store={store}>
-      <Router>
         <div className="App">
           <NavigationBar />
           <Switch>
             <Route exact path="/" component={Landing} />
-            <Route path="/prof" component={UserProfile} />
-            <Route path="/posts" component={Posts} />
+            <Route exact path="/prof" component={UserProfile} />
+            <Route exact path="/posts" component={Posts} />
             <Route path="/makepost" component={MakePost} />
           </Switch>
           <Footer />
         </div>
-      </Router>
     </Provider>
   )
 }

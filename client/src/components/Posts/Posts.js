@@ -53,6 +53,7 @@ function Posts() {
       )
     })
   }
+
   return (
     <div className="posts">
       <NavLink className="createPost" to="/makepost">

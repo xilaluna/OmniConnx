@@ -1,41 +1,31 @@
-import http from "../http-common";
+/*import http from "../http-common";
+import axios from 'axios';
+import authHeader from './auth-header';
+*/
 import axios from 'axios';
 import authHeader from './auth-header';
 
 const API_URL = 'http://localhost:8080/test/';
 
-class UserDataService {
-  getAll() {
-    return http.get("/user");
+class UserService {
+  getPublicContent() {
+    return axios.get(API_URL + 'all');
   }
 
-  get(id) {
-    return http.get(`/user/${id}`);
+  getUserBoard() {
+    return axios.get(API_URL + 'user', { headers: authHeader() });
   }
 
-  create(data) {
-    return http.post("/user/signup", data);
+  getModeratorBoard() {
+    return axios.get(API_URL + 'mod', { headers: authHeader() });
   }
 
-  update(id, data) {
-    return http.put(`/user/${id}`, data);
+  getAdminBoard() {
+    return axios.get(API_URL + 'admin', { headers: authHeader() });
   }
-
-  delete(id) {
-    return http.delete(`/user/${id}`);
-  }
-
-  deleteAll() {
-    return http.delete(`/users`);
-  }
-
-  findByTitle(title) {
-    return http.get(`/users?title=${title}`);
-  }
-  
 }
 
-export default new UserDataService();
+export default new UserService();
 
 /*
 class UserDataService {
